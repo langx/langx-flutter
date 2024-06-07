@@ -1,23 +1,5 @@
 import 'package:flutter/material.dart';
 
-class UserProfileCard extends StatelessWidget {
-  const UserProfileCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Card(
-        child: Column(
-          children: [
-            UserInfoSection(),
-            //SendMessageButton(),
-            //MorePhotosSection(),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 class UserInfoSection extends StatelessWidget {
   const UserInfoSection({super.key});

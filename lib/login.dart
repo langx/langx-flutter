@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:langx_flutter/head_bar.dart';
+import 'package:langx_flutter/pages/home/head_bar.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: LoginScreen(),
-    );
-  }
-}
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

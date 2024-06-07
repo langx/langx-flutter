@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:langx_flutter/bottom_navigation_bar.dart';
-import 'package:langx_flutter/head_bar.dart';
+import 'package:langx_flutter/pages/home/bottom_navigation_bar.dart';
+import 'package:langx_flutter/pages/home/head_bar.dart';
+import 'package:go_router/go_router.dart';
 
-class Community extends StatelessWidget {
-  const Community({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: CommunityScreen(),
-    );
-  }
-}
 
 class CommunityScreen extends StatefulWidget {
   const CommunityScreen({super.key});
@@ -24,6 +15,12 @@ class _CommunityScreenState extends State<CommunityScreen> {
   int _selectedIndex = 2;
 
   void _onItemTapped(int index) {
+    switch (index) {
+      case 1:
+
+        break;
+      
+    }
     setState(() {
       _selectedIndex = index;
     });
@@ -185,6 +182,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
         ),
       ),
       bottomNavigationBar: AppBottomNavigationBar(
+        
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
