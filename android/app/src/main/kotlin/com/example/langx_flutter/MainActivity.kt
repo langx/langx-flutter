@@ -1,4 +1,4 @@
-package com.example.langx_flutter
+package tech.newchapter.langx
 
 import io.flutter.embedding.android.FlutterActivity
 
