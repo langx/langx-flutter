@@ -113,28 +113,23 @@ To build the project for different platforms, use the following commands:
 To run the tests for the project, use the following command:
 
 ```bash
-flutter test
+$ flutter test
+00:04 +1: All tests passed!
 ```
 
-<!--
 ### Additional Commands
 
-- **Analyzing Code:**
+**Analyzing Code:**
 
-  ```bash
-  flutter analyze
-  ```
+```sh
+flutter analyze
+```
 
-- **Formatting Code:**
-  ```bash
-  flutter format .
-  ```
+**List Devices:**
 
-  **Fix Issues:**
-  ```bash
-  flutter fix .
-  ```
--->
+```sh
+flutter devices
+```
 
 ### Setting Up IDE
 
