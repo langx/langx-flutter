@@ -11,13 +11,12 @@ class _CommunityState extends State<Community> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(31, 163, 163, 163),
+      backgroundColor: const Color.fromARGB(31, 163, 163, 163),
       appBar: AppBar(
-        title: Text("Community"),
-        backgroundColor: Color.fromARGB(255, 253, 237, 154),
+        title: const Text("Community"),
+        backgroundColor: const Color.fromARGB(255, 253, 237, 154),
       ),
-      body: 
-      Container(),
+      body: Container(),
     );
   }
 }
