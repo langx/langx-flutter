@@ -83,7 +83,10 @@ Ensure that the project configuration is correct and any necessary environment v
 To run the project on an emulator or physical device, use the following command:
 
 ```bash
-flutter run
+## chrome
+flutter run -d chrome
+## or
+flutter run -d <device_id>
 ```
 
 ### Building the Project
