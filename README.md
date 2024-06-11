@@ -89,28 +89,6 @@ flutter run -d chrome
 flutter run -d <device_id>
 ```
 
-### Building the Project
-
-To build the project for different platforms, use the following commands:
-
-- **Android:**
-
-  ```bash
-  flutter build apk
-  ```
-
-- **iOS:**
-
-  ```bash
-  flutter build ios
-  ```
-
-- **Web:**
-
-  ```bash
-  flutter build web
-  ```
-
 ### Testing the Project
 
 To run the tests for the project, use the following command:
@@ -142,3 +120,31 @@ If you are using Visual Studio Code or Android Studio, make sure to install the 
 - **Android Studio:** Install the Flutter and Dart plugins from the Plugin Preferences.
 
 With these steps, you should be able to build, run, and test the 'langx-flutter' project. Let me know if you encounter any issues or need further assistance!
+
+## Build and Deploy
+
+### Building the Project
+
+To build the project for different platforms, use the following commands:
+
+- **Android:**
+
+  ```bash
+  flutter build apk
+  ```
+
+- **iOS:**
+
+  ```bash
+  flutter build ios
+  ```
+
+- **Web:**
+
+  ```bash
+  flutter build web
+  ```
+
+### Deploying the Project
+
+To deploy the project to different platforms, follow the official documentation for each platform.
