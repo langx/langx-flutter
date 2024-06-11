@@ -21,3 +21,126 @@ samples, guidance on mobile development, and a full API reference.
 - Framework: [Flutter](https://flutter.dev/)
 - State Management: [Riverpod](https://riverpod.dev/)
 - BaaS: [Appwrite](https://appwrite.io/)
+
+## Installation
+
+### Prerequisites
+
+- **Flutter SDK:** Ensure that you have the Flutter SDK installed. If not, follow the instructions here to install it.
+- **Dart SDK:** Dart is included with the Flutter SDK.
+- **IDE:** It is recommended to use an IDE like Visual Studio Code or Android Studio with the Flutter and Dart plugins installed.
+- **Emulator/Simulator:** Have an emulator (Android or iOS) or a physical device set up for testing.
+
+---
+
+- Homebrew (macOS)
+
+```sh
+$ brew install flutter
+```
+
+- Chocolatey (Windows):
+
+```choco
+> choco install flutter
+```
+
+- Snap (Linux):
+
+```sh
+$ sudo snap install flutter --classic
+```
+
+- APT (Debian/Ubuntu):
+
+```sh
+$ sudo apt install flutter
+```
+
+### Clone the Repository
+
+If you haven't already cloned the repository, you can do so with the following command:
+
+```bash
+git clone https://github.com/langx/langx-flutter.git
+cd langx-flutter
+```
+
+### Install Dependencies
+
+Navigate to the project directory and install the necessary dependencies:
+
+```bash
+flutter pub get
+```
+
+### Configure the Project
+
+Ensure that the project configuration is correct and any necessary environment variables or settings are set up.
+
+### Running the Project
+
+To run the project on an emulator or physical device, use the following command:
+
+```bash
+flutter run
+```
+
+### Building the Project
+
+To build the project for different platforms, use the following commands:
+
+- **Android:**
+
+  ```bash
+  flutter build apk
+  ```
+
+- **iOS:**
+
+  ```bash
+  flutter build ios
+  ```
+
+- **Web:**
+
+  ```bash
+  flutter build web
+  ```
+
+### Testing the Project
+
+To run the tests for the project, use the following command:
+
+```bash
+flutter test
+```
+
+<!--
+### Additional Commands
+
+- **Analyzing Code:**
+
+  ```bash
+  flutter analyze
+  ```
+
+- **Formatting Code:**
+  ```bash
+  flutter format .
+  ```
+
+  **Fix Issues:**
+  ```bash
+  flutter fix .
+  ```
+-->
+
+### Setting Up IDE
+
+If you are using Visual Studio Code or Android Studio, make sure to install the Flutter and Dart plugins to enhance your development experience.
+
+- **Visual Studio Code:** Install the Flutter and Dart extensions from the Extensions Marketplace.
+- **Android Studio:** Install the Flutter and Dart plugins from the Plugin Preferences.
+
+With these steps, you should be able to build, run, and test the 'langx-flutter' project. Let me know if you encounter any issues or need further assistance!
