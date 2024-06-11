@@ -36,7 +36,7 @@ samples, guidance on mobile development, and a full API reference.
 - Homebrew (macOS)
 
 ```sh
-$ brew install flutter
+brew install flutter
 ```
 
 - Chocolatey (Windows):
@@ -48,13 +48,13 @@ $ brew install flutter
 - Snap (Linux):
 
 ```sh
-$ sudo snap install flutter --classic
+sudo snap install flutter --classic
 ```
 
 - APT (Debian/Ubuntu):
 
 ```sh
-$ sudo apt install flutter
+sudo apt install flutter
 ```
 
 ### Clone the Repository
