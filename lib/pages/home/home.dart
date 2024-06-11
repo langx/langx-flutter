@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:langx_flutter/old/community.dart';
 import 'package:langx_flutter/pages/home/community.dart';
+import 'package:langx_flutter/pages/home/profile.dart';
 
-
-//Variables
+// Variables
 int index = 1;
 
 class Home extends StatefulWidget {
@@ -15,43 +14,33 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-//Pages selection
+// Pages selection
 class _HomeState extends State<Home> {
-  final List<Widget> _bodyElements = 
-   [
-     Container(
-      child: Text("Demo 0"),
-    ),
-    Container(
-      child: const Community(),
-    ),
-    Container(
-      child: Text("Section 2"),
-    )
+  final List<Widget> _bodyElements = [
+    const Text("Chat Page"),
+    const Community(),
+    const Profile(),
   ];
 
-//Main widget
+// Main Widget
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _bodyElements.elementAt(index),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: "Chat"
-            ),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Home",
-            ),
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: "Profile",
-            )
+          )
         ],
 
-        //index handling
+        // Index Handling
         currentIndex: index,
         onTap: (value) {
           index = value;
