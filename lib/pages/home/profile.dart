@@ -1,5 +1,20 @@
 import 'package:flutter/material.dart';
 
+class Profile extends StatelessWidget {
+  // ignore: use_super_parameters
+  const Profile({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const UserInfoSection(),
+        SendMessageButton(),
+        MorePhotosSection(),
+      ],
+    );
+  }
+}
 
 class UserInfoSection extends StatelessWidget {
   const UserInfoSection({super.key});
