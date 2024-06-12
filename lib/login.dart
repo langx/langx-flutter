@@ -99,8 +99,9 @@ class LoginScreenState extends State<LoginScreen> {
                       obscureText: true,
                     ),
                     const SizedBox(height: 35),
-                    dButtonFilled(
-                      text: "Login",
+                    TextButton(
+                      // text: "Login",
+                      child: const Text('Login'),
                       onPressed: () {
                         login(emailController.text, passwordController.text);
                       },
@@ -154,6 +155,13 @@ class LoginScreenState extends State<LoginScreen> {
                     TextButton(
                       onPressed: () {},
                       child: const Text('SHOW INTRO'),
+                    ),
+                    const SizedBox(height: 30),
+                    TextButton(
+                      onPressed: () {
+                        logout();
+                      },
+                      child: const Text('logout'),
                     ),
                   ],
                 ),
