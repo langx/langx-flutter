@@ -3,6 +3,12 @@ import 'package:appwrite/appwrite.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:langx_flutter/login.dart';
+import 'package:langx_flutter/theme.dart';
+// import 'package:langx_flutter/old/community.dart';
+// import 'package:langx_flutter/pages/home/profile.dart';
+// import 'package:langx_flutter/pages/home/profile.dart';
+// import 'package:langx_flutter/pages/home/home.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +34,8 @@ class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(useMaterial3: true),
+      theme: whiteTheme(),
+      darkTheme: darkTheme(),
       home: home,
     );
   }
