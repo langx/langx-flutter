@@ -6,7 +6,6 @@ import 'package:appwrite/models.dart' as models;
 
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_buttons.dart';
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_input.dart';
-// import 'package:langx_flutter/pages/home/head_bar.dart';
 
 // Initialize Logger
 var logger = Logger();
