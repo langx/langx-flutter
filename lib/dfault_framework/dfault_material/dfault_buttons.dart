@@ -33,8 +33,7 @@ Widget dButton(
         child: Text(
           text,
           textAlign: TextAlign.left,
-          // ignore: prefer_const_constructors
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: "Netflix",
             fontWeight: FontWeight.w600,
             fontSize: 18,
