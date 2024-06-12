@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:appwrite/appwrite.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:langx_flutter/login.dart';
-// import 'package:langx_flutter/old/community.dart';
-// import 'package:langx_flutter/pages/home/profile.dart';
-// import 'package:langx_flutter/pages/home/profile.dart';
-// import 'package:langx_flutter/pages/home/home.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Client client =
-      Client().setEndpoint("https://db.langx.io/v1").setProject("<PROJECT_ID>");
+  await dotenv.load();
+
+  Client client = Client()
+      .setEndpoint(dotenv.env['APP_ENDPOINT']!)
+      .setProject(dotenv.env['APP_PROJECT']!);
   Account account = Account(client);
 
   runApp(Main(
@@ -32,7 +32,6 @@ class Main extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(useMaterial3: true),
       home: home,
-      // home: const Home(),
     );
   }
 }
