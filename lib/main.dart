@@ -14,7 +14,7 @@ void main() {
   Account account = Account(client);
 
   runApp(Main(
-    home: const LoginScreen(),
+    home: LoginScreen(account: account),
     account: account,
   ));
 }
