@@ -98,7 +98,6 @@ class LoginScreenState extends State<LoginScreen> {
                       obscureText: true,
                     ),
                     const SizedBox(height: 35),
-                    // TODO: onPressed is not working properly with dButton, it works with TextButton
                     dButton(
                         text: "Login",
                         onPressed: () {
