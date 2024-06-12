@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_buttons.dart';
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_input.dart';
-import 'package:langx_flutter/pages/home/head_bar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,7 +16,6 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: 
       SafeArea(child:
       Center(
@@ -31,8 +29,8 @@ class LoginScreenState extends State<LoginScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      margin: EdgeInsets.all(55),
-                      padding: EdgeInsets.all(5),
+                      margin: const EdgeInsets.all(55),
+                      padding: const EdgeInsets.all(5),
                       child: Image.asset("assets/images/langx.png"),
                     ),
                     const SizedBox(height: 25),
