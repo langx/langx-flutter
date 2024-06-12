@@ -103,7 +103,9 @@ $ flutter test
 **Analyzing Code:**
 
 ```sh
-flutter analyze
+$ flutter analyze
+Analyzing langx-flutter...
+No issues found! (ran in 0.7s)
 ```
 
 **List Devices:**
