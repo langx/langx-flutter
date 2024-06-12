@@ -98,13 +98,12 @@ class LoginScreenState extends State<LoginScreen> {
                       obscureText: true,
                     ),
                     const SizedBox(height: 35),
-                    TextButton(
-                      // text: "Login",
-                      child: const Text('Login'),
-                      onPressed: () {
-                        login(emailController.text, passwordController.text);
-                      },
-                    ),
+                    // TODO: onPressed is not working properly with dButton, it works with TextButton
+                    dButtonFilled(
+                        text: "Login",
+                        onPressed: () {
+                          login(emailController.text, passwordController.text);
+                        }),
                     const SizedBox(height: 8),
                     TextButton(
                       // onPressed: () {
