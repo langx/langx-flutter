@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:langx_flutter/dfault_framework/dfault_material/dfault_buttons.dart';
+import 'package:langx_flutter/dfault_framework/dfault_material/dfault_input.dart';
 import 'package:langx_flutter/pages/home/head_bar.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -15,15 +17,12 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HeadAppBar(
-        title: 'LangX',
-        centerTile: false,
-      ),
-      body: Center(
+      backgroundColor: Colors.white,
+      body: 
+      SafeArea(child:
+      Center(
         child: SizedBox(
           width: 350,
-          child: Card(
-            elevation: 4,
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Form(
@@ -31,23 +30,24 @@ class LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: 'Email',
-                      ),
+                    Container(
+                      margin: EdgeInsets.all(55),
+                      padding: EdgeInsets.all(5),
+                      child: Image.asset("assets/images/langx.png"),
+                    ),
+                    const SizedBox(height: 25),
+                    dInput(
+                      label: "Email"
                     ),
                     const SizedBox(height: 16),
-                    TextFormField(
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                        labelText: 'Password',
+                    dInput(
+                      label: "Password"
                       ),
-                    ),
-                    const SizedBox(height: 24),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: const Text('LOGIN'),
-                    ),
+                    const SizedBox(height: 35),
+                    dButtonFilled(
+                      text: "Login",
+                      onPressed: (){}
+                      ),
                     const SizedBox(height: 8),
                     TextButton(
                       onPressed: () {},
