@@ -33,6 +33,7 @@ Widget dButtonFilled(
         child: Text(
           text,
           textAlign: TextAlign.left,
+          // ignore: prefer_const_constructors
           style: TextStyle(
             fontFamily: "Netflix",
             fontWeight: FontWeight.w600,
