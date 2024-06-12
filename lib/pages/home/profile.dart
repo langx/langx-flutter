@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
-  // ignore: use_super_parameters
-  const Profile({Key? key}) : super(key: key);
+  const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +51,7 @@ class UserInfoSection extends StatelessWidget {
 }
 
 class SendMessageButton extends StatelessWidget {
-  // ignore: use_super_parameters
-  const SendMessageButton({Key? key}) : super(key: key);
+  const SendMessageButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +63,7 @@ class SendMessageButton extends StatelessWidget {
 }
 
 class MorePhotosSection extends StatelessWidget {
-  // ignore: use_super_parameters
-  const MorePhotosSection({Key? key}) : super(key: key);
+  const MorePhotosSection({super.key});
 
   @override
   Widget build(BuildContext context) {

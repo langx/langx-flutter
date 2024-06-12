@@ -4,12 +4,11 @@ class HeadAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool centerTile;
 
-  // ignore: use_super_parameters
   const HeadAppBar({
-    Key? key,
+    super.key,
     required this.title,
     this.centerTile = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

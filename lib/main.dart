@@ -23,9 +23,7 @@ class Main extends StatelessWidget {
   final Widget home;
   final Account account;
 
-  // ignore: use_super_parameters
-  const Main({Key? key, required this.home, required this.account})
-      : super(key: key);
+  const Main({super.key, required this.home, required this.account});
 
   @override
   Widget build(BuildContext context) {
