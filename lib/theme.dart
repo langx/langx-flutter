@@ -3,7 +3,7 @@ import "package:flutter/material.dart";
 whiteTheme(){
  return ThemeData(
   colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFEC409)),
-  scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
+  scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
   inputDecorationTheme: InputDecorationTheme(
       suffixStyle: const TextStyle(color: Colors.white),
       fillColor: const Color(0xFFE8E8E8),
