@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 //default ButtonFilled parameters
 const Color inactiveColor = Color.fromARGB(221, 114, 113, 113);
 
-Widget dButtonFilled(
-    {required onPressed, String text = "", bool active = true}) {
+Widget dButton({required onPressed, String text = "", bool active = true}) {
   return Container(
     height: 60,
     decoration: BoxDecoration(

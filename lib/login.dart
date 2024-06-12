@@ -99,7 +99,7 @@ class LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 35),
                     // TODO: onPressed is not working properly with dButton, it works with TextButton
-                    dButtonFilled(
+                    dButton(
                         text: "Login",
                         onPressed: () {
                           login(emailController.text, passwordController.text);
