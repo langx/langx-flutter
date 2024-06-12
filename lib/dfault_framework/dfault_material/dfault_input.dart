@@ -1,27 +1,35 @@
 import 'package:flutter/material.dart';
 
-dInput({required label}){
+Widget dInput({
+  required String label,
+  TextEditingController? controller,
+  bool obscureText = false,
+}) {
   return Container(
     decoration: BoxDecoration(
-      boxShadow:[ BoxShadow(
-        color: Color.fromARGB(255, 193, 193, 193).withOpacity(0.5),
-        spreadRadius: 2,
-        blurRadius: 10,
-        offset: Offset(0, 0), // cambios en la posición de la sombra
-      ),
-    ],
+      boxShadow: [
+        BoxShadow(
+          color: const Color.fromARGB(255, 193, 193, 193).withOpacity(0.5),
+          spreadRadius: 2,
+          blurRadius: 10,
+          offset: const Offset(0, 0), // changes the position of the shadow
+        ),
+      ],
     ),
     child: TextField(
-    decoration: InputDecoration(
-      label: Text(label),
-      fillColor: Color.fromARGB(255, 234, 234, 234),
-      filled: true,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
-        borderSide: const BorderSide(color: Colors.white
+      controller: controller,
+      obscureText: obscureText,
+      decoration: InputDecoration(
+        label: Text(label),
+        fillColor: const Color.fromARGB(255, 234, 234, 234),
+        filled: true,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(
+            color: Colors.white,
           ),
-        )
-      )
+        ),
+      ),
     ),
   );
 }
