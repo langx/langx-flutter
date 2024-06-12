@@ -100,7 +100,7 @@ class LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 35),
                     dButton(
                         text: "Login",
-                        onPressed: () {
+                        onTap: () {
                           login(emailController.text, passwordController.text);
                         }),
                     const SizedBox(height: 8),
