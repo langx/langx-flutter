@@ -69,11 +69,10 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     body: 
-      SafeArea(child:
-      Center(
-        child: SizedBox(
-          width: 350,
+      body: SafeArea(
+        child: Center(
+          child: SizedBox(
+            width: 350,
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Form(
