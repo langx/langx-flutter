@@ -6,9 +6,9 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        const UserInfoSection(),
+        UserInfoSection(),
         SendMessageButton(),
         MorePhotosSection(),
       ],
@@ -52,6 +52,9 @@ class UserInfoSection extends StatelessWidget {
 }
 
 class SendMessageButton extends StatelessWidget {
+  // ignore: use_super_parameters
+  const SendMessageButton({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -62,6 +65,9 @@ class SendMessageButton extends StatelessWidget {
 }
 
 class MorePhotosSection extends StatelessWidget {
+  // ignore: use_super_parameters
+  const MorePhotosSection({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const Padding(
