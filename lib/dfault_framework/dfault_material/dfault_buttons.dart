@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 //default ButtonFilled parameters
 const Color inactiveColor = Color.fromARGB(221, 114, 113, 113);
 
-Widget dButton({required onTap, String text = "", bool active = true}) {
+Widget dButton({required onPress, String text = "", bool active = true}) {
   return Container(
     height: 60,
     decoration: BoxDecoration(
@@ -28,7 +28,7 @@ Widget dButton({required onTap, String text = "", bool active = true}) {
         ]),
     child: Center(
       child: GestureDetector(
-        onTap: onTap,
+        onTap: onPress,
         child: Text(
           text,
           textAlign: TextAlign.left,
