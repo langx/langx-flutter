@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:logger/logger.dart';
 import 'package:appwrite/appwrite.dart';
 import 'package:appwrite/models.dart' as models;
 
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_buttons.dart';
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_input.dart';
 // import 'package:langx_flutter/pages/home/head_bar.dart';
+
+// Initialize Logger
+var logger = Logger();
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key, required this.account});
@@ -31,9 +35,12 @@ class LoginScreenState extends State<LoginScreen> {
       setState(() {
         loggedInUser = user;
       });
+
+      // Log the user
+      logger.i('logged in: $loggedInUser');
     } catch (e) {
       // Handle error
-      print('Login failed: $e');
+      logger.e('Login failed: $e');
     }
   }
 
@@ -44,7 +51,7 @@ class LoginScreenState extends State<LoginScreen> {
       await login(email, password);
     } catch (e) {
       // Handle error
-      print('Registration failed: $e');
+      logger.e('Registration failed: $e');
     }
   }
 
@@ -56,7 +63,7 @@ class LoginScreenState extends State<LoginScreen> {
       });
     } catch (e) {
       // Handle error
-      print('Logout failed: $e');
+      logger.e('Logout failed: $e');
     }
   }
 
