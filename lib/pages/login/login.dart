@@ -1,3 +1,4 @@
+import 'package:appwrite/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'login_service.dart';
@@ -77,7 +78,11 @@ class LoginScreenState extends State<LoginScreen> {
                             width: 40,
                             height: 40,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            oAuthLogin(
+                                provider: OAuthProvider.google,
+                                context: context);
+                          },
                         ),
                         const SizedBox(width: 30),
                         IconButton(
@@ -86,7 +91,11 @@ class LoginScreenState extends State<LoginScreen> {
                             width: 40,
                             height: 40,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            oAuthLogin(
+                                provider: OAuthProvider.facebook,
+                                context: context);
+                          },
                         ),
                         const SizedBox(width: 30),
                         IconButton(
@@ -95,7 +104,11 @@ class LoginScreenState extends State<LoginScreen> {
                             width: 40,
                             height: 40,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            oAuthLogin(
+                                provider: OAuthProvider.apple,
+                                context: context);
+                          },
                         ),
                       ],
                     ),
