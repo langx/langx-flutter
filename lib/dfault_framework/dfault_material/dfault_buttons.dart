@@ -33,7 +33,7 @@ Widget dButton({required onPress, String text = "", bool active = true}) {
           text,
           textAlign: TextAlign.left,
           style: const TextStyle(
-            fontFamily: "Netflix",
+            fontFamily: "Comfortaa",
             fontWeight: FontWeight.w600,
             fontSize: 18,
             letterSpacing: 0.0,
