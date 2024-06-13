@@ -5,7 +5,6 @@ import 'login_service.dart';
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_buttons.dart';
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_input.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -49,12 +48,11 @@ class LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 35),
                     dButton(
                         text: "Login",
-                        onPress: () async{
+                        onPress: () async {
                           logUserIn(
-                            email: emailController.text, 
-                            password: passwordController.text,
-                            context: context
-                            );
+                              email: emailController.text,
+                              password: passwordController.text,
+                              context: context);
                         }),
                     const SizedBox(height: 8),
                     TextButton(
@@ -108,9 +106,7 @@ class LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 30),
                     TextButton(
-                      onPressed: () {
-
-                      },
+                      onPressed: () {},
                       child: const Text('logout'),
                     ),
                   ],
