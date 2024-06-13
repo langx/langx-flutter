@@ -76,6 +76,12 @@ flutter pub get
 
 ### Configure the Project
 
+Copy the `.env.sample` file to `.env`:
+
+```bash
+cp .env.sample .env
+```
+
 Ensure that the project configuration is correct and any necessary environment variables or settings are set up.
 
 ### Running the Project
