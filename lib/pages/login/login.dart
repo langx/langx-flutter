@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:logger/logger.dart';
-import 'package:appwrite/appwrite.dart';
-import 'package:appwrite/models.dart' as models;
+import 'login_service.dart';
 
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_buttons.dart';
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_input.dart';
 
-// Initialize Logger
-var logger = Logger();
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key, required this.account});
-
-  final Account account;
+  const LoginScreen({super.key});
 
   @override
   LoginScreenState createState() => LoginScreenState();
@@ -24,47 +18,6 @@ class LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
-  models.User? loggedInUser;
-
-  Future<void> login(String email, String password) async {
-    try {
-      await widget.account
-          .createEmailPasswordSession(email: email, password: password);
-      final user = await widget.account.get();
-      setState(() {
-        loggedInUser = user;
-      });
-
-      // Log the user
-      logger.i('logged in: $loggedInUser');
-    } catch (e) {
-      // Handle error
-      logger.e('Login failed: $e');
-    }
-  }
-
-  Future<void> register(String email, String password, String name) async {
-    try {
-      await widget.account.create(
-          userId: ID.unique(), email: email, password: password, name: name);
-      await login(email, password);
-    } catch (e) {
-      // Handle error
-      logger.e('Registration failed: $e');
-    }
-  }
-
-  Future<void> logout() async {
-    try {
-      await widget.account.deleteSession(sessionId: 'current');
-      setState(() {
-        loggedInUser = null;
-      });
-    } catch (e) {
-      // Handle error
-      logger.e('Logout failed: $e');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,8 +52,12 @@ class LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 35),
                     dButton(
                         text: "Login",
-                        onPress: () {
-                          login(emailController.text, passwordController.text);
+                        onPress: () async{
+                          logUserIn(
+                            email: emailController.text, 
+                            password: passwordController.text,
+                            context: context
+                            );
                         }),
                     const SizedBox(height: 8),
                     TextButton(
@@ -155,7 +112,7 @@ class LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 30),
                     TextButton(
                       onPressed: () {
-                        logout();
+                        
                       },
                       child: const Text('logout'),
                     ),
