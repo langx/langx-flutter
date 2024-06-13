@@ -55,7 +55,7 @@ class LoginScreenState extends State<LoginScreen> {
                               password: passwordController.text,
                               context: context);
                         }),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 16),
                     TextButton(
                       // onPressed: () {
                       //   register(emailController.text, passwordController.text,
@@ -64,6 +64,7 @@ class LoginScreenState extends State<LoginScreen> {
                       onPressed: () {},
                       child: const Text('Not a member yet? SIGN UP'),
                     ),
+                    const SizedBox(height: 8),
                     TextButton(
                       onPressed: () {},
                       child: const Text('Forgot password?'),
@@ -116,11 +117,6 @@ class LoginScreenState extends State<LoginScreen> {
                     TextButton(
                       onPressed: () {},
                       child: const Text('SHOW INTRO'),
-                    ),
-                    const SizedBox(height: 30),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text('logout'),
                     ),
                   ],
                 ),
