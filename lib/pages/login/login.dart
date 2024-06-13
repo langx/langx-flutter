@@ -14,10 +14,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
-  final _formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +27,6 @@ class LoginScreenState extends State<LoginScreen> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Form(
-                key: _formKey,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -112,7 +109,7 @@ class LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 30),
                     TextButton(
                       onPressed: () {
-                        
+
                       },
                       child: const Text('logout'),
                     ),
