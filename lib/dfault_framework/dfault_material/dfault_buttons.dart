@@ -7,14 +7,7 @@ Widget dButton({required onPress, String text = "", bool active = true}) {
   return Container(
     height: 60,
     decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [
-            Color.fromARGB(255, 222, 171, 2),
-            Color(0xFFFFC409),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
+        color: const Color(0xFFFFC409),
         borderRadius: const BorderRadius.all(
           Radius.circular(15),
         ),
@@ -37,7 +30,7 @@ Widget dButton({required onPress, String text = "", bool active = true}) {
             fontWeight: FontWeight.w600,
             fontSize: 18,
             letterSpacing: 0.0,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
       ),
