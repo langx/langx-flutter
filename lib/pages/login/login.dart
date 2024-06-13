@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'login_service.dart';
+
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_buttons.dart';
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_input.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -11,20 +14,19 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
-  final _formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: 
-      SafeArea(child:
-      Center(
-        child: SizedBox(
-          width: 350,
+      body: SafeArea(
+        child: Center(
+          child: SizedBox(
+            width: 350,
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Form(
-                key: _formKey,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -35,19 +37,31 @@ class LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 25),
                     dInput(
-                      label: "Email"
+                      label: "Email",
+                      controller: emailController,
                     ),
                     const SizedBox(height: 16),
                     dInput(
-                      label: "Password"
-                      ),
+                      label: "Password",
+                      controller: passwordController,
+                      obscureText: true,
+                    ),
                     const SizedBox(height: 35),
-                    dButtonFilled(
-                      text: "Login",
-                      onPressed: (){}
-                      ),
+                    dButton(
+                        text: "Login",
+                        onPress: () async{
+                          logUserIn(
+                            email: emailController.text, 
+                            password: passwordController.text,
+                            context: context
+                            );
+                        }),
                     const SizedBox(height: 8),
                     TextButton(
+                      // onPressed: () {
+                      //   register(emailController.text, passwordController.text,
+                      //       nameController.text);
+                      // },
                       onPressed: () {},
                       child: const Text('Not a member yet? SIGN UP'),
                     ),
@@ -91,6 +105,13 @@ class LoginScreenState extends State<LoginScreen> {
                     TextButton(
                       onPressed: () {},
                       child: const Text('SHOW INTRO'),
+                    ),
+                    const SizedBox(height: 30),
+                    TextButton(
+                      onPressed: () {
+
+                      },
+                      child: const Text('logout'),
                     ),
                   ],
                 ),
