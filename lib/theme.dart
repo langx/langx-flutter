@@ -14,7 +14,8 @@ whiteTheme() {
       focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(width: 1.5, color: Color(0xFFE8E8E8)),
           borderRadius: BorderRadius.circular(15)),
-      labelStyle: const TextStyle(color: Color(0xEA000000)),
+      labelStyle:
+          const TextStyle(color: Color(0xEA000000), fontFamily: "Comfortaa"),
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Color(0xFFFEC409),
@@ -22,9 +23,7 @@ whiteTheme() {
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
         textStyle: WidgetStateProperty.all<TextStyle>(
-          const TextStyle(
-            color: Color(0xFFFEC409),
-          ),
+          const TextStyle(color: Color(0xFFFEC409), fontFamily: "Comfortaa"),
         ),
       ),
     ),
@@ -45,7 +44,8 @@ darkTheme() {
       focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(width: 1.5, color: Color(0xFF6B6B6B)),
           borderRadius: BorderRadius.circular(15)),
-      labelStyle: const TextStyle(color: Color(0xEAFFFFFF)),
+      labelStyle:
+          const TextStyle(color: Color(0xEAFFFFFF), fontFamily: "Comfortaa"),
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Color(0xFFFEC409),
@@ -60,6 +60,7 @@ darkTheme() {
         textStyle: WidgetStateProperty.all<TextStyle>(
           const TextStyle(
             color: Color.fromARGB(255, 255, 213, 73),
+            fontFamily: "Comfortaa",
           ),
         ),
       ),
