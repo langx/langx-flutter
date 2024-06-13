@@ -1,42 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:appwrite/appwrite.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
-import 'package:langx_flutter/login.dart';
+import 'package:langx_flutter/pages/login/login.dart';
 import 'package:langx_flutter/theme.dart';
-// import 'package:langx_flutter/old/community.dart';
-// import 'package:langx_flutter/pages/home/profile.dart';
-// import 'package:langx_flutter/pages/home/profile.dart';
-// import 'package:langx_flutter/pages/home/home.dart';
 
-
-Future<void> main() async {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load();
+  await dotenv.load(fileName: ".env");
 
-  Client client = Client()
-      .setEndpoint(dotenv.env['APP_ENDPOINT']!)
-      .setProject(dotenv.env['APP_PROJECT']!);
-  Account account = Account(client);
-
-  runApp(Main(
-    home: LoginScreen(account: account),
-    account: account,
-  ));
+  runApp(const Main());
 }
 
 class Main extends StatelessWidget {
-  final Widget home;
-  final Account account;
-
-  const Main({super.key, required this.home, required this.account});
-
+  const Main({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: whiteTheme(),
       darkTheme: darkTheme(),
-      home: home,
+      home: const LoginScreen(),
+      // home: const Home(),
     );
   }
 }
