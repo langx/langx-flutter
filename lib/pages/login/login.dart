@@ -19,6 +19,8 @@ class LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Brightness platformBrightness = MediaQuery.of(context).platformBrightness;
+
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -33,7 +35,11 @@ class LoginScreenState extends State<LoginScreen> {
                     Container(
                       margin: const EdgeInsets.all(55),
                       padding: const EdgeInsets.all(5),
-                      child: Image.asset("assets/images/langx.png"),
+                      child: Image.asset(
+                        platformBrightness == Brightness.dark
+                            ? "assets/images/langx-white.png"
+                            : "assets/images/langx-dark.png",
+                      ),
                     ),
                     const SizedBox(height: 25),
                     dInput(
