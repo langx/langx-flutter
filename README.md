@@ -163,7 +163,7 @@ If you encounter any issues, feel free to open an issue at [langx/langx-flutter/
 
 ## Contributing
 
-We welcome contributions from the community! If you'd like to contribute to the Flutter version of LangX , please fork our repository, make some improvements, and submit a pull request. We'll review your changes and merge them if they meet our guidelines. You can find out more about this in [CONTRIBUTING.md](./CONTRIBUTING). Thank you for helping to make this page even better!
+We welcome contributions from the community! If you'd like to contribute to the Flutter version of LangX , please fork our repository, make some improvements, and submit a pull request. We'll review your changes and merge them if they meet our guidelines. You can find out more about this in [CONTRIBUTING.md](./CONTRIBUTING.md). Thank you for helping to make this page even better!
 
 LangX is an open source project and we welcome contributions from the community. If you're interested in contributing, please check out our GitHub repository for more information.
 
