@@ -159,7 +159,7 @@ To deploy the project to different platforms, follow the official documentation 
 
 ## Issues
 
-If you encounter any issues, feel free to open an issue at [langx/langx-flutter/issues](https://github.com/langx/langx-flutter/issues), or, if you are able to fix the issue, feel free to fix it and open a pull request.
+If you encounter any issues, feel free to open an issue at [langx/langx-flutter/issues](https://github.com/langx/langx-flutter/issues). If you can fix the issue, please do so and open a pull request.
 
 ## Contributing
 
