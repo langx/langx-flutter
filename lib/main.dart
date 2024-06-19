@@ -20,7 +20,7 @@ class Main extends StatelessWidget {
       theme: whiteTheme(),
       darkTheme: darkTheme(),
 //      home: const LoginScreen(),
-        home: const Home(),
+      home: const Home(),
       // home: const Home(),
     );
   }

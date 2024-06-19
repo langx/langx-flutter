@@ -31,7 +31,7 @@ class UserCard extends StatelessWidget {
             Image.asset(
               imageUrl,
               width: double.infinity,
-              height: double.infinity, 
+              height: double.infinity,
               fit: BoxFit.cover,
             ),
             const Positioned(
@@ -59,7 +59,7 @@ class UserCard extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 8, 
+              bottom: 8,
               left: 8,
               right: 8,
               child: Column(

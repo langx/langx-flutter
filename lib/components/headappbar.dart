@@ -13,8 +13,8 @@ class HeadAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title:Text( title,
-          style:const TextStyle(
+      title: Text(title,
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
           )),
