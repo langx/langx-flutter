@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:langx_flutter/pages/login/login.dart';
+//import 'package:langx_flutter/pages/login/login.dart';
 import 'package:langx_flutter/theme.dart';
+
+import 'package:langx_flutter/pages/home/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +19,8 @@ class Main extends StatelessWidget {
     return MaterialApp(
       theme: whiteTheme(),
       darkTheme: darkTheme(),
-      home: const LoginScreen(),
+//      home: const LoginScreen(),
+        home: const Home(),
       // home: const Home(),
     );
   }
