@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:langx_flutter/components/usercard.dart';
-import 'package:langx_flutter/components/headappbar.dart';
 
 class Community extends StatefulWidget {
   const Community({super.key});
@@ -35,82 +34,52 @@ class _CommunityState extends State<Community> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(31, 163, 163, 163),
-      appBar: const HeadAppBar(
-        title: "Commnunity",
-        centerTile: false,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  InkWell(
-                    onTap: () {},
-                    child: Ink(
-                      color: const Color.fromARGB(255, 255, 251, 239),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: buildCategoryButton(
-                            Icons.home, "For You", Colors.orange),
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: Ink(
-                      color: const Color.fromARGB(255, 255, 251, 239),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: buildCategoryButton(
-                            Icons.check_box, "Enthusiasts", Colors.green),
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: Ink(
-                      color: const Color.fromARGB(255, 255, 251, 239),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: buildCategoryButton(
-                            Icons.person_add, "New Users", Colors.red),
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: Ink(
-                      color: const Color.fromARGB(255, 255, 251, 239),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: buildCategoryButton(
-                            Icons.people, "Active", Colors.green),
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: Ink(
-                      color: const Color.fromARGB(255, 255, 251, 239),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: buildCategoryButton(
-                            Icons.visibility, "Visitors", Colors.black),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
-            const Row(
+      body: CustomScrollView(
+        slivers: [
+          const SliverAppBar(
+            title: Text("Community"),
+            centerTitle: false,
+            pinned: true,
+            backgroundColor: Color(0xFFFBC02D),
+            foregroundColor: Colors.black,
+          ),
+          SliverToBoxAdapter(
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              runSpacing: 8.0,
               children: [
-                SizedBox(width: 8),
-                Text(
+                Expanded(
+                  child:
+                      buildCategoryButton(Icons.home, "FOR YOU", Colors.orange),
+                ),
+                Expanded(
+                  child: buildCategoryButton(
+                      Icons.check_box, "ENTHUSIASTS", Colors.green),
+                ),
+                Expanded(
+                  child: buildCategoryButton(
+                      Icons.person_add, "NEW USERS", Colors.red),
+                ),
+                Expanded(
+                  child:
+                      buildCategoryButton(Icons.people, "ACTIVE", Colors.green),
+                ),
+                Expanded(
+                  child: buildCategoryButton(
+                      Icons.visibility, "VISITORS", Colors.black),
+                ),
+              ],
+            ),
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 16),
+          ),
+          const SliverToBoxAdapter(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
                   "Language Mates",
                   style: TextStyle(
                     fontSize: 18,
@@ -118,10 +87,11 @@ class _CommunityState extends State<Community> {
                     color: Color(0xFF262626),
                   ),
                 ),
-              ],
+              ),
             ),
-            const SizedBox(height: 8),
-            const Align(
+          ),
+          const SliverToBoxAdapter(
+            child: Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.all(16.0),
@@ -135,11 +105,12 @@ class _CommunityState extends State<Community> {
                 ),
               ),
             ),
-            const SizedBox(height: 16),
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                children: List.generate(6, (index) {
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.all(8.0),
+            sliver: SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
                   return UserCard(
                     name: 'User ${index + 1}',
                     age: 18 + index,
@@ -148,11 +119,18 @@ class _CommunityState extends State<Community> {
                     imageUrl: 'assets/images/preview.png',
                     status: 'Active',
                   );
-                }),
+                },
+                childCount: 12,
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 8.0,
+                crossAxisSpacing: 8.0,
+                childAspectRatio: 0.75,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

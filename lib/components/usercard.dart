@@ -24,73 +24,76 @@ class UserCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.0),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16.0),
-                child: Image.asset(imageUrl,
-                    width: double.infinity, fit: BoxFit.cover),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16.0),
+        child: Stack(
+          children: [
+            Image.asset(
+              imageUrl,
+              width: double.infinity,
+              height: double.infinity, 
+              fit: BoxFit.cover,
+            ),
+            const Positioned(
+              top: 8,
+              left: 8,
+              child: CircleAvatar(
+                backgroundColor: Colors.red,
+                radius: 8,
+                child: Text(''),
               ),
-              const Positioned(
-                top: 8,
-                left: 8,
-                child: CircleAvatar(
-                  backgroundColor: Colors.red,
-                  radius: 8,
-                  child: Text(''),
+            ),
+            Positioned(
+              top: 8,
+              right: 8,
+              child: Container(
+                padding: const EdgeInsets.all(4.0),
+                decoration: BoxDecoration(
+                  color: Colors.black45,
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: Text(
+                  '$age',
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
-              Positioned(
-                top: 8,
-                right: 8,
-                child: Container(
-                  padding: const EdgeInsets.all(4.0),
-                  decoration: BoxDecoration(
-                    color: Colors.black45,
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  child: Text(
-                    '$age',
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 3,
-                left: 0,
-                right: 0,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(name,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 12,
-                            color: Colors.white)),
-                    Text(
-                      studies,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 11,
-                          color: Colors.white),
+            ),
+            Positioned(
+              bottom: 8, 
+              left: 8,
+              right: 8,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: Colors.white,
                     ),
-                    Text(
-                      speaks,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 10,
-                          color: Colors.white),
+                  ),
+                  Text(
+                    studies,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                      color: Colors.white,
                     ),
-                  ],
-                ),
+                  ),
+                  Text(
+                    speaks,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 11,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }
