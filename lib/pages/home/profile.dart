@@ -1,88 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:langx_flutter/components/profile_user_card.dart';
+import 'package:langx_flutter/components/profile_token_card.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        UserInfoSection(),
-        SendMessageButton(),
-        MorePhotosSection(),
-      ],
-    );
-  }
+  State<Profile> createState() => _ProfileState();
 }
 
-class UserInfoSection extends StatelessWidget {
-  const UserInfoSection({super.key});
-
+class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.yellow[700],
-      padding: const EdgeInsets.all(16.0),
-      child: const Row(
-        children: [
-          CircleAvatar(
-            radius: 40,
-            backgroundImage: AssetImage('assets/preview.png'),
-          ),
-          SizedBox(width: 16.0),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Tanya',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text('ACTIVE IN IM AGO'),
-              Text('27 | FEMALE | AUSTRALIA'),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class SendMessageButton extends StatelessWidget {
-  const SendMessageButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      child: const Text('Send A Message'),
-    );
-  }
-}
-
-class MorePhotosSection extends StatelessWidget {
-  const MorePhotosSection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'More Photos',
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Profile",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
+            )),
+        centerTitle: false,
+        backgroundColor: Colors.yellow[700],
+      ),
+      backgroundColor: const Color.fromARGB(31, 163, 163, 163),
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+        child: ListView(
+          children:const [
+             //Afterwards, it should be modified to take an ID as input and retrieve data based on that ID.
+             //Alternatively, the outer layer retrieves all the data for the cards and inserts them individually.
+             ProfileUserCard(
+              name: 'Addison',
+              age: 18,
+              gender: 'Male',
+              location: 'TW',
+              imageUrl: 'assets/images/preview.png',
+              status: 'Online',
             ),
-          ),
-          SizedBox(height: 8.0),
-          Text('Currently, no photos are available.'),
-        ],
+            ProfileTokenCard()
+          ],
+        ),
       ),
     );
   }
 }
+
+
