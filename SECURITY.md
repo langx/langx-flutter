@@ -6,10 +6,10 @@ The following versions of our project are currently being supported with securit
 
 | Version        | Supported          |
 | -------------- | ------------------ |
-| Flutter 3.x.x  | :white_check_mark: |
+| Flutter 3.22.x | :white_check_mark: |
 | Flutter < 3.0  | :x:                |
 | Dart 3.x.x     | :white_check_mark: |
-| Dart < 3.0     | :x:                |
+| Dart < 3.4     | :x:                |
 | DevTools 2.x.x | :white_check_mark: |
 | DevTools < 2.0 | :x:                |
 
