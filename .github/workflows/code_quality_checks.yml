@@ -16,6 +16,12 @@ jobs:
         with:
           flutter-version: "3.22.0"
 
+      - name: Disable Flutter analytics
+        run: flutter config --no-analytics
+
+      - name: Copy .env.sample to .env
+        run: cp .env.sample .env
+
       - name: Install dependencies
         run: flutter pub get
 
