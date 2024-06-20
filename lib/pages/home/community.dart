@@ -22,7 +22,7 @@ class _CommunityState extends State<Community> {
             const SizedBox(height: 4),
             Text(
               label,
-              style: TextStyle(color: iconColor, fontSize: 12),
+              style: TextStyle(color: iconColor, fontSize: 9),
             ),
           ],
         ),
@@ -48,25 +48,30 @@ class _CommunityState extends State<Community> {
               alignment: WrapAlignment.center,
               runSpacing: 8.0,
               children: [
-                Expanded(
-                  child:
-                      buildCategoryButton(Icons.home, "FOR YOU", Colors.orange),
-                ),
-                Expanded(
-                  child: buildCategoryButton(
-                      Icons.check_box, "ENTHUSIASTS", Colors.green),
-                ),
-                Expanded(
-                  child: buildCategoryButton(
-                      Icons.person_add, "NEW USERS", Colors.red),
-                ),
-                Expanded(
-                  child:
-                      buildCategoryButton(Icons.people, "ACTIVE", Colors.green),
-                ),
-                Expanded(
-                  child: buildCategoryButton(
-                      Icons.visibility, "VISITORS", Colors.black),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: buildCategoryButton(
+                          Icons.home, "FOR YOU", Colors.orange),
+                    ),
+                    Expanded(
+                      child: buildCategoryButton(
+                          Icons.check_box, "ENTHUSIASTS", Colors.green),
+                    ),
+                    Expanded(
+                      child: buildCategoryButton(
+                          Icons.person_add, "NEW USERS", Colors.red),
+                    ),
+                    Expanded(
+                      child: buildCategoryButton(
+                          Icons.people, "ACTIVE", Colors.green),
+                    ),
+                    Expanded(
+                      child: buildCategoryButton(
+                          Icons.visibility, "VISITORS", Colors.black),
+                    ),
+                  ],
                 ),
               ],
             ),
