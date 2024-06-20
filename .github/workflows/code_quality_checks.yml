@@ -1,0 +1,46 @@
+name: Flutter Code Quality Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  format_and_analyze:
+    name: Run Dart Format and Flutter Analyze
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.22.0"
+
+      - name: Disable Flutter analytics
+        run: flutter config --no-analytics
+
+      - name: Copy .env.sample to .env
+        run: cp .env.sample .env
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Check Dart code formatting
+        id: dart_format
+        run: dart format --output none --set-exit-if-changed .
+
+      - name: Analyze Flutter code
+        id: flutter_analyze
+        run: flutter analyze
+
+      - name: Post formatting error message
+        if: failure()
+        run: echo "Dart code formatting issues detected. Please run 'dart format .' and commit the changes."
+
+      - name: Post analyze error message
+        if: failure()
+        run: echo "Flutter analysis issues detected. Please fix the reported issues."
