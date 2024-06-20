@@ -30,8 +30,25 @@ class _CommunityState extends State<Community> {
     );
   }
 
+  int _calculateCrossAxisCount(double width) {
+    if (width < 600) {
+      return 2;
+    } else if (width < 900) {
+      return 3;
+    } else if (width < 1200) {
+      return 4;
+    } else if (width < 1800) {
+      return 5;
+    } else {
+      return 6;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    int crossAxisCount = _calculateCrossAxisCount(width);
+
     return Scaffold(
       backgroundColor: const Color.fromARGB(31, 163, 163, 163),
       body: CustomScrollView(
@@ -127,10 +144,10 @@ class _CommunityState extends State<Community> {
                 },
                 childCount: 12,
               ),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 8.0,
-                crossAxisSpacing: 8.0,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: crossAxisCount,
+                mainAxisSpacing: 10.0,
+                crossAxisSpacing: 10.0,
                 childAspectRatio: 0.75,
               ),
             ),
