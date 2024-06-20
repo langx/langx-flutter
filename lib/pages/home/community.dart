@@ -54,7 +54,19 @@ class _CommunityState extends State<Community> {
       body: CustomScrollView(
         slivers: [
           const SliverAppBar(
-            title: Text("Community"),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Community"),
+                Row(
+                  children: [
+                    Icon(Icons.search, size: 30),
+                    SizedBox(width: 10.0),
+                    Icon(Icons.filter_list, size: 30),
+                  ],
+                ),
+              ],
+            ),
             centerTitle: false,
             pinned: true,
             backgroundColor: Color(0xFFFBC02D),
