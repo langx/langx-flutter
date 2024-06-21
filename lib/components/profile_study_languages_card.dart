@@ -28,7 +28,7 @@ class StudyLanguagesCard extends StatelessWidget {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Expanded(
+                  Expanded(
                     child: Text(
                       'Study Language(s)',
                       style: TextStyle(fontSize: 25),
