@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class InfoSvg extends StatelessWidget {
+class CountrySvg extends StatelessWidget {
   final String fill;
   final int strokeWidth;
   final Color? color;
   final double widht;
   final double height;
 
-  const InfoSvg(
+  const CountrySvg(
       {super.key,
       this.color,
       this.fill = "none",
@@ -16,14 +16,12 @@ class InfoSvg extends StatelessWidget {
       this.widht = 17,
       this.height = 17});
 
-  String generateInfoSvg(String fillColor, int strokeWidth, Color color) {
+  String generateCountrySvg(String fillColor, int strokeWidth, Color color) {
     final colorHex = '#${color.value.toRadixString(16).substring(2)}';
     return '''
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-        <path d="M248 64C146.39 64 64 146.39 64 248s82.39 184 184 184 184-82.39 184-184S349.61 64 248 64z" stroke="$colorHex" stroke-width="$strokeWidth" fill="$fillColor"></path>
-        <path d="M220 220h32v116" stroke="$colorHex" stroke-width="$strokeWidth" fill="$fillColor"></path>
-        <path d="M208 340h88" stroke="$colorHex" stroke-width="$strokeWidth" fill="$fillColor"></path>
-        <path d="M248 130a26 26 0 1026 26 26 26 0 00-26-26z" stroke="$colorHex" stroke-width="$strokeWidth" fill="$fillColor"></path>
+      <path d="M80 464V68.14a8 8 0 014-6.9C91.81 56.66 112.92 48 160 48c64 0 145 48 192 48a199.53 199.53 0 0077.23-15.77 2 2 0 012.77 1.85v219.36a4 4 0 01-2.39 3.65C421.37 308.7 392.33 320 352 320c-48 0-128-32-192-32s-80 16-80 16" stroke="$colorHex" stroke-width="$strokeWidth" fill="$fillColor">
+      </path>
       </svg>
     ''';
   }
@@ -31,7 +29,7 @@ class InfoSvg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color defaultColor = color ?? Colors.black;
-    String infoSvg = generateInfoSvg(fill, strokeWidth, defaultColor);
+    String infoSvg = generateCountrySvg(fill, strokeWidth, defaultColor);
     return SvgPicture.string(
       infoSvg,
       width: widht,

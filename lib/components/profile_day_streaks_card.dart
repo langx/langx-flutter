@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:langx_flutter/components/trophy_svg.dart';
 import 'package:langx_flutter/components/info_svg.dart';
 
-class ProfileTokenCard extends StatelessWidget {
+class ProfileDayStreaksCard extends StatelessWidget {
   final String imgUrl;
-  final String amount;
+  final String days;
 
-  const ProfileTokenCard(
-      {super.key, required this.imgUrl, required this.amount});
+  const ProfileDayStreaksCard(
+      {super.key, required this.imgUrl, required this.days});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 320,
+      height: 250,
       width: MediaQuery.of(context).size.width,
       child: Card(
         elevation: 5.0,
@@ -30,7 +29,7 @@ class ProfileTokenCard extends StatelessWidget {
                 children: [
                   const Expanded(
                     child: Text(
-                      'LangX Token',
+                      'Day Streaks',
                       style: TextStyle(fontSize: 25),
                     ),
                   ),
@@ -55,7 +54,7 @@ class ProfileTokenCard extends StatelessWidget {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Your LangX Token Balance',
+                  'Your Progress in Streak',
                   style: TextStyle(
                     fontSize: 15,
                     color: Color(0xFF737373),
@@ -78,7 +77,7 @@ class ProfileTokenCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 10),
                     Text(
-                      amount,
+                      days,
                       style: const TextStyle(
                         fontSize: 30,
                       ),
@@ -89,40 +88,6 @@ class ProfileTokenCard extends StatelessWidget {
                       icon: const Icon(Icons.chevron_right),
                       onPressed: () {},
                       color: Colors.grey,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 30),
-              GestureDetector(
-                onTap: () {},
-                child: Column(
-                  children: [
-                    SizedBox(
-                      child: Row(
-                        children: [
-                          const TrophySvg(),
-                          const SizedBox(width: 10),
-                          const Text(
-                            'Leaderboard',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.black,
-                            ),
-                          ),
-                          const Spacer(),
-                          IconButton(
-                            iconSize: 30,
-                            icon: const Icon(Icons.chevron_right),
-                            onPressed: () {},
-                            color: Colors.grey,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 1,
-                      color: Colors.grey[300],
                     ),
                   ],
                 ),

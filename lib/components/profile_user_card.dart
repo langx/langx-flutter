@@ -36,7 +36,8 @@ class ProfileUserCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(16.0),
-                child: Image.asset(imageUrl, width: 180, height: 180, fit: BoxFit.cover),
+                child: Image.asset(imageUrl,
+                    width: 180, height: 180, fit: BoxFit.cover),
               ),
               const SizedBox(height: 16),
               Text(

@@ -8,7 +8,13 @@ class TrophySvg extends StatelessWidget {
   final double widht;
   final double height;
 
-  const TrophySvg({super.key, this.color, this.fill = "none", this.strokeWidth = 20, this.widht = 20, this.height = 30});
+  const TrophySvg(
+      {super.key,
+      this.color,
+      this.fill = "none",
+      this.strokeWidth = 20,
+      this.widht = 20,
+      this.height = 30});
 
   String generateTrophySvg(String fillColor, int strokeWidth, Color color) {
     final colorHex = '#${color.value.toRadixString(16).substring(2)}';
