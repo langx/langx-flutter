@@ -33,7 +33,7 @@ whiteTheme() {
 darkTheme() {
   return ThemeData(
     colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFEC409)),
-    scaffoldBackgroundColor: const Color.fromARGB(255, 20, 20, 20),
+    scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
     inputDecorationTheme: InputDecorationTheme(
       suffixStyle: const TextStyle(color: Colors.white),
       fillColor: const Color(0xFF6B6B6B),
