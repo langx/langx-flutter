@@ -47,36 +47,38 @@ class BadgesCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 25),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 16.0,
-                  crossAxisSpacing: 16.0,
-                  childAspectRatio: 0.75,
-                ),
-                itemCount: badges.length,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Image.asset(
-                        badges[index]['image']!,
-                        width: 60,
-                        height: 60,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        badges[index]['label']!,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          color: Color(0xFF737373),
+              Expanded(
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 16.0,
+                    crossAxisSpacing: 16.0,
+                    childAspectRatio: 0.75,
+                  ),
+                  itemCount: badges.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        Image.asset(
+                          badges[index]['image']!,
+                          width: 60,
+                          height: 60,
                         ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  );
-                },
+                        const SizedBox(height: 8),
+                        Text(
+                          badges[index]['label']!,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFF737373),
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
             ],
           ),
