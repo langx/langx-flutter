@@ -32,12 +32,15 @@ class ProfileAboutMeCard extends StatelessWidget {
     String aboutMeText = (aboutMe?.isEmpty ?? true)
         ? "No 'About Me' text provided yet. 💬"
         : aboutMe!;
-    String verifiedText = (verifiedemail) ? "Verified Email" : "Unverified Email";
-    Color verifiedColor = (verifiedemail) ? const Color(0xFF2DD55B) : Colors.red;
+    String verifiedText =
+        (verifiedemail) ? "Verified Email" : "Unverified Email";
+    Color verifiedColor =
+        (verifiedemail) ? const Color(0xFF2DD55B) : Colors.red;
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        double cardHeight = constraints.maxHeight > 550 ? 550 : constraints.maxHeight;
+        double cardHeight =
+            constraints.maxHeight > 550 ? 550 : constraints.maxHeight;
         return SizedBox(
           height: cardHeight,
           width: MediaQuery.of(context).size.width,
