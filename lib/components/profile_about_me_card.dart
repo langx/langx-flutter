@@ -79,7 +79,8 @@ class ProfileAboutMeCard extends StatelessWidget {
                   ),
                   Expanded(
                     child: ListView(
-                      physics: const NeverScrollableScrollPhysics(), // 禁用滚动
+                      physics:
+                          const NeverScrollableScrollPhysics(), // disable scrolling
                       children: [
                         ListTile(
                           leading: const InfoSvg(
