@@ -16,30 +16,28 @@ class ProfileAboutMeCard extends StatelessWidget {
   final bool verifiedemail;
   final String? aboutMe;
 
-  const ProfileAboutMeCard(
-      {super.key,
-      required this.country,
-      required this.gender,
-      required this.age,
-      required this.registeredNum,
-      required this.userID,
-      required this.verifiedemail,
-      this.aboutMe});
+  const ProfileAboutMeCard({
+    super.key,
+    required this.country,
+    required this.gender,
+    required this.age,
+    required this.registeredNum,
+    required this.userID,
+    required this.verifiedemail,
+    this.aboutMe,
+  });
 
   @override
   Widget build(BuildContext context) {
     String aboutMeText = (aboutMe?.isEmpty ?? true)
         ? "No 'About Me' text provided yet. 💬"
         : aboutMe!;
-    String verifiedText =
-        (verifiedemail) ? "Verified Email" : "Unverified Email";
-    Color verifiedColor =
-        (verifiedemail) ? const Color(0xFF2DD55B) : Colors.red;
+    String verifiedText = (verifiedemail) ? "Verified Email" : "Unverified Email";
+    Color verifiedColor = (verifiedemail) ? const Color(0xFF2DD55B) : Colors.red;
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        double cardHeight =
-            constraints.maxHeight > 550 ? 550 : constraints.maxHeight;
+        double cardHeight = constraints.maxHeight > 550 ? 550 : constraints.maxHeight;
         return SizedBox(
           height: cardHeight,
           width: MediaQuery.of(context).size.width,
@@ -78,6 +76,7 @@ class ProfileAboutMeCard extends StatelessWidget {
                   ),
                   Expanded(
                     child: ListView(
+                      physics: const NeverScrollableScrollPhysics(), // 禁用滚动
                       children: [
                         ListTile(
                           leading: const InfoSvg(
