@@ -16,15 +16,16 @@ class ProfileAboutMeCard extends StatelessWidget {
   final bool verifiedemail;
   final String? aboutMe;
 
-  const ProfileAboutMeCard(
-      {super.key,
-      required this.country,
-      required this.gender,
-      required this.age,
-      required this.registeredNum,
-      required this.userID,
-      required this.verifiedemail,
-      this.aboutMe});
+  const ProfileAboutMeCard({
+    super.key,
+    required this.country,
+    required this.gender,
+    required this.age,
+    required this.registeredNum,
+    required this.userID,
+    required this.verifiedemail,
+    this.aboutMe,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +79,8 @@ class ProfileAboutMeCard extends StatelessWidget {
                   ),
                   Expanded(
                     child: ListView(
+                      physics:
+                          const NeverScrollableScrollPhysics(), // disable scrolling
                       children: [
                         ListTile(
                           leading: const InfoSvg(
