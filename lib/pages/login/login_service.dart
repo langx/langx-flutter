@@ -25,6 +25,12 @@ logUserIn({required email, required password, required context}) async {
   }
 }
 
+logUserOut({required context}) async {
+  await account.deleteSession(sessionId: 'current');
+  Navigator.pushReplacement(
+      context, MaterialPageRoute(builder: (context) => const Home()));
+}
+
 oAuthLogin({required provider, required context}) async {
   await account.createOAuth2Session(provider: provider);
   Navigator.pushReplacement(
