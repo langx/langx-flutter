@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // Components Imports
-import 'package:langx_flutter/components/assets/svg/battery_svg.dart';
+import 'package:langx_flutter/assets/svg/battery_svg.dart';
 
 class StudyLanguagesCard extends StatelessWidget {
   final List<String> languages;

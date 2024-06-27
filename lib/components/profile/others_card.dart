@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 // Components Imports
-import 'package:langx_flutter/components/assets/svg/people_svg.dart';
-import 'package:langx_flutter/components/assets/svg/eye_svg.dart';
+import 'package:langx_flutter/assets/svg/people_svg.dart';
+import 'package:langx_flutter/assets/svg/eye_svg.dart';
 
 class OthersCard extends StatelessWidget {
   const OthersCard({
