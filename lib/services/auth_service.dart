@@ -1,4 +1,3 @@
-import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 
 // Service Imports
@@ -6,8 +5,6 @@ import 'package:langx_flutter/services/api_service.dart';
 
 // Page Imports
 import 'package:langx_flutter/pages/home/home.dart';
-
-Account account = Account(client);
 
 Future<bool> isLoggedIn() async {
   try {
