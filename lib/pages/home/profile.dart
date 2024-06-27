@@ -8,7 +8,6 @@ import 'package:langx_flutter/components/profile_study_languages_card.dart';
 import 'package:langx_flutter/components/profile_mother_tongues_card.dart';
 import 'package:langx_flutter/components/profile_badges_card.dart';
 import 'package:langx_flutter/components/profile_others_card.dart';
-import 'package:logger/logger.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -30,7 +29,7 @@ class _ProfileState extends State<Profile> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Logger().i('message');
+                    debugPrint('Logout button clicked');
                   },
                   child: const Icon(Icons.exit_to_app_outlined, size: 30),
                 ),
