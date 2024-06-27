@@ -5,6 +5,7 @@ import 'package:langx_flutter/services/api_service.dart';
 
 // Page Imports
 import 'package:langx_flutter/pages/home/home.dart';
+import 'package:langx_flutter/pages/login/login.dart';
 
 Future<bool> isLoggedIn() async {
   try {
@@ -29,7 +30,7 @@ login({required email, required password, required context}) async {
 logout({required context}) async {
   await account.deleteSession(sessionId: 'current');
   Navigator.pushReplacement(
-      context, MaterialPageRoute(builder: (context) => const Home()));
+      context, MaterialPageRoute(builder: (context) => const LoginScreen()));
 }
 
 oAuthLogin({required provider, required context}) async {

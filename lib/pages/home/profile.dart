@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// Import Services
+import 'package:langx_flutter/services/auth_service.dart';
+
 // Components Import
 import 'package:langx_flutter/components/profile_user_card.dart';
 import 'package:langx_flutter/components/profile_token_card.dart';
@@ -30,7 +33,7 @@ class _ProfileState extends State<Profile> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    debugPrint('Logout button clicked');
+                    logout(context: context);
                   },
                   child: const Icon(Icons.exit_to_app_outlined, size: 30),
                 ),
