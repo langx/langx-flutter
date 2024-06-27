@@ -1,6 +1,6 @@
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+
+// Pages Import
 import 'package:langx_flutter/pages/home/community.dart';
 import 'package:langx_flutter/pages/home/profile.dart';
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+// Components Imports
 import 'package:langx_flutter/components/battery_svg.dart';
 
 class StudyLanguagesCard extends StatelessWidget {

@@ -1,8 +1,11 @@
 import 'package:appwrite/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'login_service.dart';
 
+// Service Imports
+import 'package:langx_flutter/services/auth_service.dart';
+
+// Component Imports
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_buttons.dart';
 import 'package:langx_flutter/dfault_framework/dfault_material/dfault_input.dart';
 

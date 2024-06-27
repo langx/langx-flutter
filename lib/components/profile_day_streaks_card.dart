@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+// Components Imports
 import 'package:langx_flutter/components/info_svg.dart';
 
 class ProfileDayStreaksCard extends StatelessWidget {
