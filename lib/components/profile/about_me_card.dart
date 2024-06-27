@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 // Components Import
-import 'package:langx_flutter/components/info_svg.dart';
-import 'package:langx_flutter/components/country_svg.dart';
-import 'package:langx_flutter/components/gender_svg.dart';
-import 'package:langx_flutter/components/calendar_svg.dart';
-import 'package:langx_flutter/components/clock_svg.dart';
-import 'package:langx_flutter/components/at_sign_svg.dart';
-import 'package:langx_flutter/components/shield_svg.dart';
+import 'package:langx_flutter/components/assets/svg/info_svg.dart';
+import 'package:langx_flutter/components/assets/svg/country_svg.dart';
+import 'package:langx_flutter/components/assets/svg/gender_svg.dart';
+import 'package:langx_flutter/components/assets/svg/calendar_svg.dart';
+import 'package:langx_flutter/components/assets/svg/clock_svg.dart';
+import 'package:langx_flutter/components/assets/svg/at_sign_svg.dart';
+import 'package:langx_flutter/components/assets/svg/shield_svg.dart';
 
 class ProfileAboutMeCard extends StatelessWidget {
   final String country;

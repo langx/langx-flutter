@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:langx_flutter/services/auth_service.dart';
 
 // Components Import
-import 'package:langx_flutter/components/profile_user_card.dart';
-import 'package:langx_flutter/components/profile_token_card.dart';
-import 'package:langx_flutter/components/profile_day_streaks_card.dart';
-import 'package:langx_flutter/components/profile_about_me_card.dart';
-import 'package:langx_flutter/components/profile_study_languages_card.dart';
-import 'package:langx_flutter/components/profile_mother_tongues_card.dart';
-import 'package:langx_flutter/components/profile_badges_card.dart';
-import 'package:langx_flutter/components/profile_others_card.dart';
+import 'package:langx_flutter/components/profile/user_card.dart';
+import 'package:langx_flutter/components/profile/token_card.dart';
+import 'package:langx_flutter/components/profile/day_streaks_card.dart';
+import 'package:langx_flutter/components/profile/about_me_card.dart';
+import 'package:langx_flutter/components/profile/study_languages_card.dart';
+import 'package:langx_flutter/components/profile/mother_tongues_card.dart';
+import 'package:langx_flutter/components/profile/badges_card.dart';
+import 'package:langx_flutter/components/profile/others_card.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});

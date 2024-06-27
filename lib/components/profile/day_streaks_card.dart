@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // Components Imports
-import 'package:langx_flutter/components/info_svg.dart';
+import 'package:langx_flutter/components/assets/svg/info_svg.dart';
 
 class ProfileDayStreaksCard extends StatelessWidget {
   final String imgUrl;

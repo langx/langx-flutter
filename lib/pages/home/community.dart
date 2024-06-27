@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // Components Import
-import 'package:langx_flutter/components/usercard.dart';
+import 'package:langx_flutter/components/community/usercard.dart';
 
 class Community extends StatefulWidget {
   const Community({super.key});
