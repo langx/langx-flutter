@@ -5,7 +5,7 @@ import 'package:langx_flutter/pages/home/home.dart';
 
 Account account = Account(client);
 
-Future<bool> isUserLoggedIn() async {
+Future<bool> isLoggedIn() async {
   try {
     await account.get();
     return true;
