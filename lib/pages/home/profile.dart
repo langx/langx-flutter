@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:langx_flutter/components/profile_user_card.dart';
 import 'package:langx_flutter/components/profile_token_card.dart';
 import 'package:langx_flutter/components/profile_day_streaks_card.dart';
@@ -7,6 +8,7 @@ import 'package:langx_flutter/components/profile_study_languages_card.dart';
 import 'package:langx_flutter/components/profile_mother_tongues_card.dart';
 import 'package:langx_flutter/components/profile_badges_card.dart';
 import 'package:langx_flutter/components/profile_others_card.dart';
+import 'package:logger/logger.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -20,11 +22,23 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile",
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            )),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text("Profile"),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Logger().i('message');
+                  },
+                  child: const Icon(Icons.exit_to_app_outlined, size: 30),
+                ),
+                const SizedBox(width: 10.0),
+              ],
+            ),
+          ],
+        ),
         centerTitle: false,
         backgroundColor: Colors.yellow[700],
       ),
