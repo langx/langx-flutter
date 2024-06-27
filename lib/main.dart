@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
+// Theme Imports
 import 'package:langx_flutter/theme.dart';
+
+// Service Imports
+import 'package:langx_flutter/services/auth_service.dart';
+
+// Page Imports
 import 'package:langx_flutter/pages/login/login.dart';
 import 'package:langx_flutter/pages/home/home.dart';
-import 'package:langx_flutter/pages/login/login_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +36,7 @@ class Main extends StatelessWidget {
               return const LoginScreen();
             }
           } else {
-            // TODO: We may here to show Splash Screen
+            // TODO: #25 Implement Splash Screen
             return const CircularProgressIndicator();
           }
         },
