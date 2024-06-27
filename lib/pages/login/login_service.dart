@@ -5,7 +5,7 @@ import 'package:langx_flutter/pages/home/home.dart';
 
 Account account = Account(client);
 
-Future<bool> checkLoggedInUser() async {
+Future<bool> isUserLoggedIn() async {
   try {
     await account.get();
     return true;
@@ -15,7 +15,7 @@ Future<bool> checkLoggedInUser() async {
   }
 }
 
-logUserIn({required email, required password, required context}) async {
+login({required email, required password, required context}) async {
   try {
     await account.createEmailPasswordSession(email: email, password: password);
     Navigator.pushReplacement(
@@ -25,7 +25,7 @@ logUserIn({required email, required password, required context}) async {
   }
 }
 
-logUserOut({required context}) async {
+logout({required context}) async {
   await account.deleteSession(sessionId: 'current');
   Navigator.pushReplacement(
       context, MaterialPageRoute(builder: (context) => const Home()));

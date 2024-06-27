@@ -56,7 +56,7 @@ class LoginScreenState extends State<LoginScreen> {
                     dButton(
                         text: "Login",
                         onPress: () async {
-                          logUserIn(
+                          login(
                               email: emailController.text,
                               password: passwordController.text,
                               context: context);
