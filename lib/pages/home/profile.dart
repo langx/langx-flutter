@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Import Services
-import 'package:langx_flutter/services/auth_service.dart';
+// Providers Import
+import 'package:langx_flutter/store/providers/auth_provider.dart';
 
 // Components Import
 import 'package:langx_flutter/components/profile/user_card.dart';
@@ -13,14 +14,14 @@ import 'package:langx_flutter/components/profile/mother_tongues_card.dart';
 import 'package:langx_flutter/components/profile/badges_card.dart';
 import 'package:langx_flutter/components/profile/others_card.dart';
 
-class Profile extends StatefulWidget {
+class Profile extends ConsumerStatefulWidget {
   const Profile({super.key});
 
   @override
-  State<Profile> createState() => _ProfileState();
+  ConsumerState<Profile> createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileState extends ConsumerState<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +34,7 @@ class _ProfileState extends State<Profile> {
               children: [
                 GestureDetector(
                   onTap: () async {
-                    await logoutService(context: context);
+                    ref.read(authProvider.notifier).logout(context);
                   },
                   child: const Icon(Icons.exit_to_app_outlined, size: 30),
                 ),
