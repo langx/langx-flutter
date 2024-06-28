@@ -36,7 +36,7 @@ class _ProfileState extends ConsumerState<Profile> {
                   onTap: () async {
                     ref.read(authProvider.notifier).logout(context);
                   },
-                  child: const Icon(Icons.exit_to_app_outlined, size: 30),
+                  child: const Icon(Icons.exit_to_app_outlined),
                 ),
                 const SizedBox(width: 10.0),
               ],
@@ -44,9 +44,7 @@ class _ProfileState extends ConsumerState<Profile> {
           ],
         ),
         centerTitle: false,
-        backgroundColor: Colors.yellow[700],
       ),
-      backgroundColor: const Color.fromARGB(31, 163, 163, 163),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
         child: ListView(
