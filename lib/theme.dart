@@ -29,6 +29,11 @@ ThemeData whiteTheme() {
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedItemColor: Color(0xFFFEC409),
     ),
+    cardTheme: const CardTheme(
+      color: Colors.white,
+      shadowColor: Colors.grey,
+      elevation: 5,
+    ),
   );
 }
 
@@ -62,6 +67,11 @@ ThemeData darkTheme() {
       backgroundColor: Color(0xFF121212),
       unselectedItemColor: Color(0xFFFFFFFF),
       selectedItemColor: Color(0xFFFEC409),
+    ),
+    cardTheme: const CardTheme(
+      color: Color(0xFF1A1A1A),
+      shadowColor: Colors.black87,
+      elevation: 5,
     ),
   );
 }
