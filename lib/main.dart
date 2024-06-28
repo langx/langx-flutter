@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:langx_flutter/store/notifiers/auth_notifier.dart';
 
 // Themes Import
 import 'package:langx_flutter/theme.dart';
@@ -11,7 +10,7 @@ import 'package:langx_flutter/pages/login/login.dart';
 import 'package:langx_flutter/pages/home/home.dart';
 
 // Providers Import
-import 'package:langx_flutter/store/providers/auth_provider.dart';
+import 'package:langx_flutter/providers/auth_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -15,3 +15,7 @@ class UserNotifier extends StateNotifier<List<dynamic>> {
     }
   }
 }
+
+final userProvider = StateNotifierProvider<UserNotifier, List<dynamic>>((ref) {
+  return UserNotifier();
+});

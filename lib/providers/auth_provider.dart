@@ -116,3 +116,8 @@ class AuthNotifier extends StateNotifier<AuthStatus> {
     }
   }
 }
+
+// Define a provider for the AuthNotifier
+final authProvider = StateNotifierProvider<AuthNotifier, AuthStatus>((ref) {
+  return AuthNotifier();
+});

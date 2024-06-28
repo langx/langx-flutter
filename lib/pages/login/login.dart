@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Providers Import
-import 'package:langx_flutter/store/providers/auth_provider.dart';
+import 'package:langx_flutter/providers/auth_provider.dart';
 
 // Component Imports
 import 'package:langx_flutter/components/dfault_framework/dfault_material/dfault_buttons.dart';

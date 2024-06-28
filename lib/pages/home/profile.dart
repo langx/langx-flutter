@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Providers Import
-import 'package:langx_flutter/store/providers/auth_provider.dart';
+import 'package:langx_flutter/providers/auth_provider.dart';
 
 // Components Import
 import 'package:langx_flutter/components/profile/user_card.dart';

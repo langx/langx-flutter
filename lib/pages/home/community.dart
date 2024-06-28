@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Components Import
 import 'package:langx_flutter/components/community/usercard.dart';
-import 'package:langx_flutter/store/providers/user_provider.dart';
+import 'package:langx_flutter/providers/user_provider.dart';
 
 class Community extends ConsumerStatefulWidget {
   const Community({super.key});
