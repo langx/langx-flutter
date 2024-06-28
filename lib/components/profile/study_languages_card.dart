@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:langx_flutter/components/word_svg.dart';
 
-class MotherTonguesCard extends StatelessWidget {
+// Components Imports
+import 'package:langx_flutter/assets/svg/battery_svg.dart';
+
+class StudyLanguagesCard extends StatelessWidget {
   final List<String> languages;
 
-  const MotherTonguesCard({
+  const StudyLanguagesCard({
     super.key,
     required this.languages,
   });
@@ -30,7 +32,7 @@ class MotherTonguesCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      'Mother Tongue(s)',
+                      'Study Language(s)',
                       style: TextStyle(fontSize: 25),
                     ),
                   ),
@@ -40,7 +42,7 @@ class MotherTonguesCard extends StatelessWidget {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'The language(s) you speak at home',
+                  'The language(s) that you Practice & Learn',
                   style: TextStyle(
                     fontSize: 15,
                     color: Color(0xFF737373),
@@ -58,7 +60,7 @@ class MotherTonguesCard extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 4.0),
                       child: Row(
                         children: [
-                          const WordSvg(),
+                          const BatterySvg(),
                           const SizedBox(width: 10),
                           Text(
                             languages[index],
@@ -68,9 +70,9 @@ class MotherTonguesCard extends StatelessWidget {
                             ),
                           ),
                           const Spacer(),
-                          const Text(
-                            '中國人',
-                            style: TextStyle(
+                          Text(
+                            languages[index],
+                            style: const TextStyle(
                               fontSize: 12,
                               color: Color(0xFF737373),
                             ),

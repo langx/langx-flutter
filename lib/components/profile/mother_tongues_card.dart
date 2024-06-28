@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:langx_flutter/components/battery_svg.dart';
 
-class StudyLanguagesCard extends StatelessWidget {
+// Components Imports
+import 'package:langx_flutter/assets/svg/word_svg.dart';
+
+class MotherTonguesCard extends StatelessWidget {
   final List<String> languages;
 
-  const StudyLanguagesCard({
+  const MotherTonguesCard({
     super.key,
     required this.languages,
   });
@@ -30,7 +32,7 @@ class StudyLanguagesCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      'Study Language(s)',
+                      'Mother Tongue(s)',
                       style: TextStyle(fontSize: 25),
                     ),
                   ),
@@ -40,7 +42,7 @@ class StudyLanguagesCard extends StatelessWidget {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'The language(s) that you Practice & Learn',
+                  'The language(s) you speak at home',
                   style: TextStyle(
                     fontSize: 15,
                     color: Color(0xFF737373),
@@ -58,7 +60,7 @@ class StudyLanguagesCard extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 4.0),
                       child: Row(
                         children: [
-                          const BatterySvg(),
+                          const WordSvg(),
                           const SizedBox(width: 10),
                           Text(
                             languages[index],
@@ -68,9 +70,9 @@ class StudyLanguagesCard extends StatelessWidget {
                             ),
                           ),
                           const Spacer(),
-                          Text(
-                            languages[index],
-                            style: const TextStyle(
+                          const Text(
+                            '中國人',
+                            style: TextStyle(
                               fontSize: 12,
                               color: Color(0xFF737373),
                             ),
