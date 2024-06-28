@@ -36,7 +36,7 @@ class _ProfileState extends ConsumerState<Profile> {
                   onTap: () async {
                     ref.read(authProvider.notifier).logout(context);
                   },
-                  child: const Icon(Icons.exit_to_app_outlined, size: 30),
+                  child: const Icon(Icons.exit_to_app_outlined),
                 ),
                 const SizedBox(width: 10.0),
               ],
@@ -44,11 +44,9 @@ class _ProfileState extends ConsumerState<Profile> {
           ],
         ),
         centerTitle: false,
-        backgroundColor: Colors.yellow[700],
       ),
-      backgroundColor: const Color.fromARGB(31, 163, 163, 163),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: ListView(
           children: const [
             // Afterwards, it should be modified to take an ID as input and retrieve data based on that ID.
@@ -77,8 +75,14 @@ class _ProfileState extends ConsumerState<Profile> {
                 userID: '@langx_9049',
                 verifiedemail: true,
                 aboutMe: ''),
-            StudyLanguagesCard(languages: ["English"]),
-            MotherTonguesCard(languages: ["Chinese (Simplified)"]),
+            StudyLanguagesCard(languages: ["English", "Italian", "French"]),
+            MotherTonguesCard(languages: [
+              "Chinese (Simplified)",
+              "English",
+              "Italian",
+              "French",
+              "Spanish",
+            ]),
             BadgesCard(
               badges: [
                 {
