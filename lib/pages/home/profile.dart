@@ -46,7 +46,7 @@ class _ProfileState extends ConsumerState<Profile> {
         centerTitle: false,
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: ListView(
           children: const [
             // Afterwards, it should be modified to take an ID as input and retrieve data based on that ID.
