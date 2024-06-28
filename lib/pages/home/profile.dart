@@ -75,8 +75,14 @@ class _ProfileState extends ConsumerState<Profile> {
                 userID: '@langx_9049',
                 verifiedemail: true,
                 aboutMe: ''),
-            StudyLanguagesCard(languages: ["English"]),
-            MotherTonguesCard(languages: ["Chinese (Simplified)"]),
+            StudyLanguagesCard(languages: ["English", "Italian", "French"]),
+            MotherTonguesCard(languages: [
+              "Chinese (Simplified)",
+              "English",
+              "Italian",
+              "French",
+              "Spanish",
+            ]),
             BadgesCard(
               badges: [
                 {
