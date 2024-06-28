@@ -114,11 +114,8 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                         ),
                         const SizedBox(width: 30),
                         IconButton(
-                          icon: SvgPicture.asset(
-                            'assets/images/apple_icon.svg',
-                            width: 40,
-                            height: 40,
-                          ),
+                          icon: SvgPicture.asset('assets/images/apple_icon.svg',
+                              width: 40, height: 40),
                           onPressed: () async {
                             await ref.read(authProvider.notifier).oAuthLogin(
                                   provider: OAuthProvider.apple,
