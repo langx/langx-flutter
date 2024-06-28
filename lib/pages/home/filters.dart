@@ -157,7 +157,7 @@ class FiltersPageState extends State<FiltersPage> {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.yellow[700],
-                foregroundColor: Colors.white,
+                foregroundColor: Colors.black,
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
               ),
               onPressed: () {},
