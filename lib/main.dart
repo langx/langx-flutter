@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:langx_flutter/store/notifiers/auth_notifier.dart';
 
-// Theme Imports
+// Themes Import
 import 'package:langx_flutter/theme.dart';
 
-// Service Imports
-import 'package:langx_flutter/services/auth_service.dart';
-
-// Page Imports
+// Pages Import
 import 'package:langx_flutter/pages/login/login.dart';
 import 'package:langx_flutter/pages/home/home.dart';
+
+// Providers Import
+import 'package:langx_flutter/store/providers/auth_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,29 +24,21 @@ void main() async {
   );
 }
 
-class Main extends StatelessWidget {
+class Main extends ConsumerWidget {
   const Main({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authStatus = ref.watch(authProvider);
+
     return MaterialApp(
       theme: whiteTheme(),
       darkTheme: darkTheme(),
-      home: FutureBuilder<bool>(
-        future: isLoggedIn(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.data == true) {
-              return const Home();
-            } else {
-              return const LoginScreen();
-            }
-          } else {
-            // TODO: #25 Implement Splash Screen
-            return const SplashScreen();
-          }
-        },
-      ),
+      home: authStatus == AuthStatus.loading
+          ? const SplashScreen()
+          : authStatus == AuthStatus.authenticated
+              ? const Home()
+              : const LoginScreen(),
     );
   }
 }
