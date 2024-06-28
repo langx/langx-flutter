@@ -57,25 +57,27 @@ class LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 35),
                     dButton(
-                        text: "Login",
-                        onPress: () async {
-                          login(
-                              email: emailController.text,
-                              password: passwordController.text,
-                              context: context);
-                        }),
+                      text: "Login",
+                      onPress: () async {
+                        await loginService(
+                          email: emailController.text,
+                          password: passwordController.text,
+                          context: context,
+                        );
+                      },
+                    ),
                     const SizedBox(height: 16),
                     TextButton(
-                      // onPressed: () {
-                      //   register(emailController.text, passwordController.text,
-                      //       nameController.text);
-                      // },
-                      onPressed: () {},
+                      onPressed: () {
+                        // Navigate to registration page
+                      },
                       child: const Text('Not a member yet? SIGN UP'),
                     ),
                     const SizedBox(height: 8),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // Navigate to forgot password page
+                      },
                       child: const Text('Forgot password?'),
                     ),
                     const SizedBox(height: 16),
@@ -88,10 +90,11 @@ class LoginScreenState extends State<LoginScreen> {
                             width: 40,
                             height: 40,
                           ),
-                          onPressed: () {
-                            oAuthLogin(
-                                provider: OAuthProvider.google,
-                                context: context);
+                          onPressed: () async {
+                            await oAuthLoginService(
+                              provider: OAuthProvider.google,
+                              context: context,
+                            );
                           },
                         ),
                         const SizedBox(width: 30),
@@ -101,10 +104,11 @@ class LoginScreenState extends State<LoginScreen> {
                             width: 40,
                             height: 40,
                           ),
-                          onPressed: () {
-                            oAuthLogin(
-                                provider: OAuthProvider.facebook,
-                                context: context);
+                          onPressed: () async {
+                            await oAuthLoginService(
+                              provider: OAuthProvider.facebook,
+                              context: context,
+                            );
                           },
                         ),
                         const SizedBox(width: 30),
@@ -114,17 +118,20 @@ class LoginScreenState extends State<LoginScreen> {
                             width: 40,
                             height: 40,
                           ),
-                          onPressed: () {
-                            oAuthLogin(
-                                provider: OAuthProvider.apple,
-                                context: context);
+                          onPressed: () async {
+                            await oAuthLoginService(
+                              provider: OAuthProvider.apple,
+                              context: context,
+                            );
                           },
                         ),
                       ],
                     ),
                     const SizedBox(height: 30),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // Show introduction
+                      },
                       child: const Text('SHOW INTRO'),
                     ),
                   ],

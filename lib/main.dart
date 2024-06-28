@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Theme Imports
 import 'package:langx_flutter/theme.dart';
@@ -15,7 +16,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
 
-  runApp(const Main());
+  runApp(
+    const ProviderScope(
+      child: Main(),
+    ),
+  );
 }
 
 class Main extends StatelessWidget {
@@ -37,9 +42,22 @@ class Main extends StatelessWidget {
             }
           } else {
             // TODO: #25 Implement Splash Screen
-            return const CircularProgressIndicator();
+            return const SplashScreen();
           }
         },
+      ),
+    );
+  }
+}
+
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(),
       ),
     );
   }

@@ -32,8 +32,8 @@ class _ProfileState extends State<Profile> {
             Row(
               children: [
                 GestureDetector(
-                  onTap: () {
-                    logout(context: context);
+                  onTap: () async {
+                    await logoutService(context: context);
                   },
                   child: const Icon(Icons.exit_to_app_outlined, size: 30),
                 ),
@@ -50,8 +50,8 @@ class _ProfileState extends State<Profile> {
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
         child: ListView(
           children: const [
-            //Afterwards, it should be modified to take an ID as input and retrieve data based on that ID.
-            //Alternatively, the outer layer retrieves all the data for the cards and inserts them individually.
+            // Afterwards, it should be modified to take an ID as input and retrieve data based on that ID.
+            // Alternatively, the outer layer retrieves all the data for the cards and inserts them individually.
             ProfileUserCard(
               name: 'Addison',
               age: 18,

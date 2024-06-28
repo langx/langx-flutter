@@ -12,29 +12,71 @@ Future<bool> isLoggedIn() async {
     await account.get();
     return true;
   } catch (e) {
-    debugPrint(e.toString());
+    debugPrint('Error checking login status: $e');
     return false;
   }
 }
 
-login({required email, required password, required context}) async {
+Future<void> loginService({
+  required String email,
+  required String password,
+  required BuildContext context,
+}) async {
   try {
     await account.createEmailPasswordSession(email: email, password: password);
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const Home()));
+    if (context.mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const Home()),
+      );
+    }
   } catch (e) {
-    debugPrint(e.toString());
+    debugPrint('Login error: $e');
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Login failed: ${e.toString()}')),
+      );
+    }
   }
 }
 
-logout({required context}) async {
-  await account.deleteSession(sessionId: 'current');
-  Navigator.pushReplacement(
-      context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+Future<void> logoutService({required BuildContext context}) async {
+  try {
+    await account.deleteSession(sessionId: 'current');
+    if (context.mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    }
+  } catch (e) {
+    debugPrint('Logout error: $e');
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Logout failed: ${e.toString()}')),
+      );
+    }
+  }
 }
 
-oAuthLogin({required provider, required context}) async {
-  await account.createOAuth2Session(provider: provider);
-  Navigator.pushReplacement(
-      context, MaterialPageRoute(builder: (context) => const Home()));
+Future<void> oAuthLoginService({
+  required provider,
+  required BuildContext context,
+}) async {
+  try {
+    await account.createOAuth2Session(provider: provider);
+    if (context.mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const Home()),
+      );
+    }
+  } catch (e) {
+    debugPrint('OAuth login error: $e');
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('OAuth login failed: ${e.toString()}')),
+      );
+    }
+  }
 }
