@@ -107,7 +107,6 @@ class ProfileTokenCard extends StatelessWidget {
                             'Leaderboard',
                             style: TextStyle(
                               fontSize: 18,
-                              color: Colors.black,
                             ),
                           ),
                           const Spacer(),
@@ -119,10 +118,6 @@ class ProfileTokenCard extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ),
-                    Container(
-                      height: 1,
-                      color: Colors.grey[300],
                     ),
                   ],
                 ),
