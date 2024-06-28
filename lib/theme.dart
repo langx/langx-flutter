@@ -1,66 +1,77 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
-whiteTheme() {
+ThemeData whiteTheme() {
   return ThemeData(
     fontFamily: "Comfortaa",
-    colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFEC409)),
-    scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
-    inputDecorationTheme: InputDecorationTheme(
-      suffixStyle: const TextStyle(color: Colors.white),
-      fillColor: const Color(0xFFE8E8E8),
-      filled: true,
-      enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 1.5, color: Color(0xFFE8E8E8)),
-          borderRadius: BorderRadius.circular(15)),
-      focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 1.5, color: Color(0xFFE8E8E8)),
-          borderRadius: BorderRadius.circular(15)),
-      labelStyle: const TextStyle(color: Color(0xEA000000)),
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: const Color(0xFFFEC409),
+      primary: const Color(0xFFFFC409),
+      primaryContainer: const Color(0xFFFFCA22),
+      secondary: const Color(0xFFFF571A),
+      secondaryContainer: const Color(0xFFFFF8F5),
+      tertiary: const Color(0xFF5260FF),
+      error: const Color(0xFFEB445A),
+      surface: const Color(0xFFFFFFFF),
+      onPrimary: Colors.black,
+      onSecondary: Colors.black,
+      onTertiary: Colors.white,
+      onSurface: Colors.black,
+      onError: Colors.white,
     ),
-    textSelectionTheme: const TextSelectionThemeData(
-      cursorColor: Color(0xFFFEC409),
+    scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+    inputDecorationTheme: const InputDecorationTheme(
+      labelStyle: TextStyle(color: Color(0xFF000000)),
     ),
-    textButtonTheme: TextButtonThemeData(
-      style: ButtonStyle(
-        textStyle: WidgetStateProperty.all<TextStyle>(
-          const TextStyle(color: Color(0xFFFEC409)),
-        ),
-      ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Color(0xFFFEC409),
+      foregroundColor: Colors.black,
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      selectedItemColor: Color(0xFFFEC409),
+    ),
+    cardTheme: const CardTheme(
+      color: Colors.white,
+      shadowColor: Colors.grey,
+      elevation: 5,
     ),
   );
 }
 
-darkTheme() {
+ThemeData darkTheme() {
   return ThemeData(
     fontFamily: "Comfortaa",
-    colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFEC409)),
-    scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
-    inputDecorationTheme: InputDecorationTheme(
-      suffixStyle: const TextStyle(color: Colors.white),
-      fillColor: const Color(0xFF6B6B6B),
-      filled: true,
-      enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 1.5, color: Color(0xFF6B6B6B)),
-          borderRadius: BorderRadius.circular(15)),
-      focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 1.5, color: Color(0xFF6B6B6B)),
-          borderRadius: BorderRadius.circular(15)),
-      labelStyle: const TextStyle(color: Color(0xEAFFFFFF)),
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: const Color(0xFFFEC409),
+      primary: const Color(0xFFFFC409),
+      primaryContainer: const Color(0xFFFFD948),
+      secondary: const Color(0xFFFF571A),
+      secondaryContainer: const Color(0xFF1C1C1D),
+      tertiary: const Color(0xFF6A64FF),
+      error: const Color(0xFFFF4961),
+      surface: const Color(0xFF121212),
+      onPrimary: Colors.black,
+      onSecondary: Colors.black,
+      onTertiary: Colors.white,
+      onSurface: Colors.white,
+      onError: Colors.white,
     ),
-    textSelectionTheme: const TextSelectionThemeData(
-      cursorColor: Color(0xFFFEC409),
+    scaffoldBackgroundColor: const Color(0xFF121212),
+    inputDecorationTheme: const InputDecorationTheme(
+      labelStyle: TextStyle(color: Color(0xFFFFFFFF)),
     ),
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Colors.white),
-      bodyMedium: TextStyle(color: Colors.white),
-      bodySmall: TextStyle(color: Colors.white),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Color(0xFFFEC409),
+      foregroundColor: Colors.black,
     ),
-    textButtonTheme: TextButtonThemeData(
-      style: ButtonStyle(
-        textStyle: WidgetStateProperty.all<TextStyle>(
-          const TextStyle(color: Color.fromARGB(255, 255, 213, 73)),
-        ),
-      ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Color(0xFF121212),
+      unselectedItemColor: Color(0xFFFFFFFF),
+      selectedItemColor: Color(0xFFFEC409),
+    ),
+    cardTheme: const CardTheme(
+      color: Color(0xFF1A1A1A),
+      shadowColor: Colors.black87,
+      elevation: 5,
     ),
   );
 }

@@ -17,11 +17,9 @@ class MotherTonguesCard extends StatelessWidget {
       height: 165,
       width: MediaQuery.of(context).size.width,
       child: Card(
-        elevation: 5.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),
-        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -66,7 +64,6 @@ class MotherTonguesCard extends StatelessWidget {
                             languages[index],
                             style: const TextStyle(
                               fontSize: 18,
-                              color: Colors.black,
                             ),
                           ),
                           const Spacer(),
