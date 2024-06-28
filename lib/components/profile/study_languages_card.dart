@@ -64,7 +64,6 @@ class StudyLanguagesCard extends StatelessWidget {
                             languages[index],
                             style: const TextStyle(
                               fontSize: 18,
-                              color: Colors.black,
                             ),
                           ),
                           const Spacer(),
