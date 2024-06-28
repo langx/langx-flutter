@@ -73,11 +73,11 @@ class _CommunityState extends ConsumerState<Community>
             Row(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.search, size: 30),
+                  icon: const Icon(Icons.search),
                   onPressed: () {},
                 ),
                 IconButton(
-                  icon: const Icon(Icons.filter_list, size: 30),
+                  icon: const Icon(Icons.filter_list),
                   onPressed: () {
                     Navigator.push(
                       context,
