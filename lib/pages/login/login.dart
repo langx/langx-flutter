@@ -1,19 +1,23 @@
 import 'package:appwrite/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'login_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:langx_flutter/dfault_framework/dfault_material/dfault_buttons.dart';
-import 'package:langx_flutter/dfault_framework/dfault_material/dfault_input.dart';
+// Providers Import
+import 'package:langx_flutter/providers/auth_provider.dart';
 
-class LoginScreen extends StatefulWidget {
+// Component Imports
+import 'package:langx_flutter/components/dfault_framework/dfault_material/dfault_buttons.dart';
+import 'package:langx_flutter/components/dfault_framework/dfault_material/dfault_input.dart';
+
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
   LoginScreenState createState() => LoginScreenState();
 }
 
-class LoginScreenState extends State<LoginScreen> {
+class LoginScreenState extends ConsumerState<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -54,25 +58,27 @@ class LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 35),
                     dButton(
-                        text: "Login",
-                        onPress: () async {
-                          logUserIn(
+                      text: "Login",
+                      onPress: () async {
+                        await ref.read(authProvider.notifier).login(
                               email: emailController.text,
                               password: passwordController.text,
-                              context: context);
-                        }),
+                              context: context,
+                            );
+                      },
+                    ),
                     const SizedBox(height: 16),
                     TextButton(
-                      // onPressed: () {
-                      //   register(emailController.text, passwordController.text,
-                      //       nameController.text);
-                      // },
-                      onPressed: () {},
+                      onPressed: () {
+                        // Navigate to registration page
+                      },
                       child: const Text('Not a member yet? SIGN UP'),
                     ),
                     const SizedBox(height: 8),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // Navigate to forgot password page
+                      },
                       child: const Text('Forgot password?'),
                     ),
                     const SizedBox(height: 16),
@@ -85,10 +91,11 @@ class LoginScreenState extends State<LoginScreen> {
                             width: 40,
                             height: 40,
                           ),
-                          onPressed: () {
-                            oAuthLogin(
-                                provider: OAuthProvider.google,
-                                context: context);
+                          onPressed: () async {
+                            await ref.read(authProvider.notifier).oAuthLogin(
+                                  provider: OAuthProvider.google,
+                                  context: context,
+                                );
                           },
                         ),
                         const SizedBox(width: 30),
@@ -98,30 +105,31 @@ class LoginScreenState extends State<LoginScreen> {
                             width: 40,
                             height: 40,
                           ),
-                          onPressed: () {
-                            oAuthLogin(
-                                provider: OAuthProvider.facebook,
-                                context: context);
+                          onPressed: () async {
+                            await ref.read(authProvider.notifier).oAuthLogin(
+                                  provider: OAuthProvider.facebook,
+                                  context: context,
+                                );
                           },
                         ),
                         const SizedBox(width: 30),
                         IconButton(
-                          icon: SvgPicture.asset(
-                            'assets/images/apple_icon.svg',
-                            width: 40,
-                            height: 40,
-                          ),
-                          onPressed: () {
-                            oAuthLogin(
-                                provider: OAuthProvider.apple,
-                                context: context);
+                          icon: SvgPicture.asset('assets/images/apple_icon.svg',
+                              width: 40, height: 40),
+                          onPressed: () async {
+                            await ref.read(authProvider.notifier).oAuthLogin(
+                                  provider: OAuthProvider.apple,
+                                  context: context,
+                                );
                           },
                         ),
                       ],
                     ),
                     const SizedBox(height: 30),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // Show introduction
+                      },
                       child: const Text('SHOW INTRO'),
                     ),
                   ],

@@ -37,8 +37,8 @@ dependencies:
   flutter_svg: ^2.0.0
   go_router: ^14.1.4
   appwrite: ^12.0.4
-  logger: ^2.3.0
   flutter_dotenv: ^5.1.0
+  flutter_riverpod: ^2.5.1
 
 dev_dependencies:
   flutter_test:
@@ -83,7 +83,7 @@ flutter:
   fonts:
     - family: Comfortaa
       fonts:
-         - asset: assets/fonts/Comfortaa.ttf
+        - asset: assets/fonts/Comfortaa.ttf
 
   #
   # For details regarding fonts from package dependencies,

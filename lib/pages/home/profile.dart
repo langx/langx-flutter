@@ -1,30 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:langx_flutter/components/profile_user_card.dart';
-import 'package:langx_flutter/components/profile_token_card.dart';
-import 'package:langx_flutter/components/profile_day_streaks_card.dart';
-import 'package:langx_flutter/components/profile_about_me_card.dart';
-import 'package:langx_flutter/components/profile_study_languages_card.dart';
-import 'package:langx_flutter/components/profile_mother_tongues_card.dart';
-import 'package:langx_flutter/components/profile_badges_card.dart';
-import 'package:langx_flutter/components/profile_others_card.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Profile extends StatefulWidget {
+// Providers Import
+import 'package:langx_flutter/providers/auth_provider.dart';
+
+// Components Import
+import 'package:langx_flutter/components/profile/user_card.dart';
+import 'package:langx_flutter/components/profile/token_card.dart';
+import 'package:langx_flutter/components/profile/day_streaks_card.dart';
+import 'package:langx_flutter/components/profile/about_me_card.dart';
+import 'package:langx_flutter/components/profile/study_languages_card.dart';
+import 'package:langx_flutter/components/profile/mother_tongues_card.dart';
+import 'package:langx_flutter/components/profile/badges_card.dart';
+import 'package:langx_flutter/components/profile/others_card.dart';
+
+class Profile extends ConsumerStatefulWidget {
   const Profile({super.key});
 
   @override
-  State<Profile> createState() => _ProfileState();
+  ConsumerState<Profile> createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileState extends ConsumerState<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile",
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            )),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text("Profile"),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () async {
+                    ref.read(authProvider.notifier).logout(context);
+                  },
+                  child: const Icon(Icons.exit_to_app_outlined, size: 30),
+                ),
+                const SizedBox(width: 10.0),
+              ],
+            ),
+          ],
+        ),
         centerTitle: false,
         backgroundColor: Colors.yellow[700],
       ),
@@ -33,8 +51,8 @@ class _ProfileState extends State<Profile> {
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
         child: ListView(
           children: const [
-            //Afterwards, it should be modified to take an ID as input and retrieve data based on that ID.
-            //Alternatively, the outer layer retrieves all the data for the cards and inserts them individually.
+            // Afterwards, it should be modified to take an ID as input and retrieve data based on that ID.
+            // Alternatively, the outer layer retrieves all the data for the cards and inserts them individually.
             ProfileUserCard(
               name: 'Addison',
               age: 18,

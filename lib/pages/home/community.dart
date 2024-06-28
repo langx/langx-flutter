@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:langx_flutter/components/usercard.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Community extends StatefulWidget {
+// Components Import
+import 'package:langx_flutter/components/community/usercard.dart';
+import 'package:langx_flutter/providers/user_provider.dart';
+
+class Community extends ConsumerStatefulWidget {
   const Community({super.key});
 
   @override
-  State<Community> createState() => _CommunityState();
+  ConsumerState<Community> createState() => _CommunityState();
 }
 
-class _CommunityState extends State<Community> {
+class _CommunityState extends ConsumerState<Community> {
+  @override
+  void initState() {
+    super.initState();
+    ref.read(userProvider.notifier).fetchUsers();
+  }
+
   Widget buildCategoryButton(IconData icon, String label, Color iconColor) {
     return GestureDetector(
       onTap: () {},
@@ -48,6 +58,8 @@ class _CommunityState extends State<Community> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     int crossAxisCount = _calculateCrossAxisCount(width);
+
+    final users = ref.watch(userProvider);
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(31, 163, 163, 163),
@@ -140,30 +152,36 @@ class _CommunityState extends State<Community> {
               ),
             ),
           ),
-          SliverPadding(
-            padding: const EdgeInsets.all(8.0),
-            sliver: SliverGrid(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return UserCard(
-                    name: 'User ${index + 1}',
-                    age: 18 + index,
-                    studies: 'Studies info',
-                    speaks: 'Speaks info',
-                    imageUrl: 'assets/images/preview.png',
-                    status: 'Active',
-                  );
-                },
-                childCount: 12,
-              ),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: crossAxisCount,
-                mainAxisSpacing: 10.0,
-                crossAxisSpacing: 10.0,
-                childAspectRatio: 0.75,
-              ),
-            ),
-          ),
+          users.isEmpty
+              ? const SliverToBoxAdapter(
+                  child: Center(child: CircularProgressIndicator()),
+                )
+              : SliverPadding(
+                  padding: const EdgeInsets.all(8.0),
+                  sliver: SliverGrid(
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        final user = users[index].data;
+                        return UserCard(
+                          name: user['name'].toString(),
+                          age: user['age'] ?? 0,
+                          studies: user['studyLanguages'].toString(),
+                          speaks: user['motherLanguages'].toString(),
+                          imageUrl:
+                              user['imageUrl'] ?? 'assets/images/preview.png',
+                          status: user['status'] ?? 'Active',
+                        );
+                      },
+                      childCount: users.length,
+                    ),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: crossAxisCount,
+                      mainAxisSpacing: 10.0,
+                      crossAxisSpacing: 10.0,
+                      childAspectRatio: 0.75,
+                    ),
+                  ),
+                ),
         ],
       ),
     );
