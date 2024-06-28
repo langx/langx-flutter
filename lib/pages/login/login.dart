@@ -1,22 +1,23 @@
 import 'package:appwrite/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Service Imports
-import 'package:langx_flutter/services/auth_service.dart';
+// Providers Import
+import 'package:langx_flutter/store/providers/auth_provider.dart';
 
 // Component Imports
-import 'package:langx_flutter/dfault_framework/dfault_material/dfault_buttons.dart';
-import 'package:langx_flutter/dfault_framework/dfault_material/dfault_input.dart';
+import 'package:langx_flutter/components/dfault_framework/dfault_material/dfault_buttons.dart';
+import 'package:langx_flutter/components/dfault_framework/dfault_material/dfault_input.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
   LoginScreenState createState() => LoginScreenState();
 }
 
-class LoginScreenState extends State<LoginScreen> {
+class LoginScreenState extends ConsumerState<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -59,11 +60,11 @@ class LoginScreenState extends State<LoginScreen> {
                     dButton(
                       text: "Login",
                       onPress: () async {
-                        await loginService(
-                          email: emailController.text,
-                          password: passwordController.text,
-                          context: context,
-                        );
+                        await ref.read(authProvider.notifier).login(
+                              email: emailController.text,
+                              password: passwordController.text,
+                              context: context,
+                            );
                       },
                     ),
                     const SizedBox(height: 16),
@@ -91,10 +92,10 @@ class LoginScreenState extends State<LoginScreen> {
                             height: 40,
                           ),
                           onPressed: () async {
-                            await oAuthLoginService(
-                              provider: OAuthProvider.google,
-                              context: context,
-                            );
+                            await ref.read(authProvider.notifier).oAuthLogin(
+                                  provider: OAuthProvider.google,
+                                  context: context,
+                                );
                           },
                         ),
                         const SizedBox(width: 30),
@@ -105,10 +106,10 @@ class LoginScreenState extends State<LoginScreen> {
                             height: 40,
                           ),
                           onPressed: () async {
-                            await oAuthLoginService(
-                              provider: OAuthProvider.facebook,
-                              context: context,
-                            );
+                            await ref.read(authProvider.notifier).oAuthLogin(
+                                  provider: OAuthProvider.facebook,
+                                  context: context,
+                                );
                           },
                         ),
                         const SizedBox(width: 30),
@@ -119,10 +120,10 @@ class LoginScreenState extends State<LoginScreen> {
                             height: 40,
                           ),
                           onPressed: () async {
-                            await oAuthLoginService(
-                              provider: OAuthProvider.apple,
-                              context: context,
-                            );
+                            await ref.read(authProvider.notifier).oAuthLogin(
+                                  provider: OAuthProvider.apple,
+                                  context: context,
+                                );
                           },
                         ),
                       ],

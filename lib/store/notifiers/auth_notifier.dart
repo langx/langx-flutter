@@ -57,7 +57,7 @@ class AuthNotifier extends StateNotifier<AuthStatus> {
   }
 
   Future<void> oAuthLogin({
-    required String provider,
+    required provider,
     required BuildContext context,
   }) async {
     state = AuthStatus.loading;
