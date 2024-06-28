@@ -28,7 +28,6 @@ class FiltersPageState extends State<FiltersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.yellow[700],
         leading: IconButton(
