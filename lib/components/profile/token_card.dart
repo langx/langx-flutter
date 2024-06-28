@@ -17,11 +17,9 @@ class ProfileTokenCard extends StatelessWidget {
       height: 320,
       width: MediaQuery.of(context).size.width,
       child: Card(
-        elevation: 5.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),
-        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
