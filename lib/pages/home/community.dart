@@ -5,6 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:langx_flutter/components/community/usercard.dart';
 import 'package:langx_flutter/providers/user_provider.dart';
 
+// Pages Import
+import 'package:langx_flutter/pages/home/filters.dart';
+
 class Community extends ConsumerStatefulWidget {
   const Community({super.key});
 
@@ -65,23 +68,35 @@ class _CommunityState extends ConsumerState<Community> {
       backgroundColor: const Color.fromARGB(31, 163, 163, 163),
       body: CustomScrollView(
         slivers: [
-          const SliverAppBar(
+          SliverAppBar(
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Community"),
+                const Text("Community"),
                 Row(
                   children: [
-                    Icon(Icons.search, size: 30),
-                    SizedBox(width: 10.0),
-                    Icon(Icons.filter_list, size: 30),
+                    IconButton(
+                      icon: const Icon(Icons.search, size: 30),
+                      onPressed: () {},
+                    ),
+                    const SizedBox(width: 10.0),
+                    IconButton(
+                      icon: const Icon(Icons.filter_list, size: 30),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const FiltersPage()),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ],
             ),
             centerTitle: false,
             pinned: true,
-            backgroundColor: Color(0xFFFBC02D),
+            backgroundColor: const Color(0xFFFBC02D),
             foregroundColor: Colors.black,
           ),
           SliverToBoxAdapter(
