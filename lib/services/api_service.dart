@@ -8,9 +8,9 @@ Client client = Client()
 
 Account account = Account(client);
 Databases databases = Databases(client);
-Functions functions = Functions(client);
-Storage storage = Storage(client);
-Locale locale = Locale(client);
+// Functions functions = Functions(client);
+// Storage storage = Storage(client);
+// Locale locale = Locale(client);
 
 Future<dynamic> listDocuments(String collectionId,
     {List<String>? queries}) async {
