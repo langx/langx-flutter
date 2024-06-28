@@ -30,15 +30,32 @@ class Main extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authStatus = ref.watch(authProvider);
+    final authNotifier = ref.read(authProvider.notifier);
 
     return MaterialApp(
       theme: whiteTheme(),
       darkTheme: darkTheme(),
-      home: authStatus == AuthStatus.loading
-          ? const SplashScreen()
-          : authStatus == AuthStatus.authenticated
-              ? const Home()
-              : const LoginScreen(),
+      home: Scaffold(
+        body: Builder(
+          builder: (context) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              if (authNotifier.errorMessage != null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(authNotifier.errorMessage!)),
+                );
+                authNotifier
+                    .clearErrorMessage(); // Clear the error message after displaying it
+              }
+            });
+
+            return authStatus == AuthStatus.loading
+                ? const SplashScreen()
+                : authStatus == AuthStatus.authenticated
+                    ? const Home()
+                    : const LoginScreen();
+          },
+        ),
+      ),
     );
   }
 }

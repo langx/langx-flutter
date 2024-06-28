@@ -17,6 +17,14 @@ class AuthNotifier extends StateNotifier<AuthStatus> {
     checkAuthStatus();
   }
 
+  String? _errorMessage;
+
+  String? get errorMessage => _errorMessage;
+
+  void clearErrorMessage() {
+    _errorMessage = null;
+  }
+
   @override
   set state(AuthStatus value) {
     super.state = value;
@@ -38,6 +46,7 @@ class AuthNotifier extends StateNotifier<AuthStatus> {
     required BuildContext context,
   }) async {
     state = AuthStatus.loading;
+    _errorMessage = null; // Clear any previous error message
     try {
       await loginService(email: email, password: password);
       state = AuthStatus.authenticated;
@@ -48,10 +57,11 @@ class AuthNotifier extends StateNotifier<AuthStatus> {
         );
       }
     } catch (e) {
-      state = AuthStatus.error;
+      state = AuthStatus.unauthenticated; // Revert to unauthenticated state
+      _errorMessage = 'Login failed: ${e.toString()}';
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Login failed: ${e.toString()}')),
+          SnackBar(content: Text(_errorMessage!)),
         );
       }
     }
@@ -62,6 +72,7 @@ class AuthNotifier extends StateNotifier<AuthStatus> {
     required BuildContext context,
   }) async {
     state = AuthStatus.loading;
+    _errorMessage = null; // Clear any previous error message
     try {
       await oAuthLoginService(provider: provider);
       state = AuthStatus.authenticated;
@@ -72,10 +83,11 @@ class AuthNotifier extends StateNotifier<AuthStatus> {
         );
       }
     } catch (e) {
-      state = AuthStatus.error;
+      state = AuthStatus.unauthenticated; // Revert to unauthenticated state
+      _errorMessage = 'OAuth login failed: ${e.toString()}';
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('OAuth login failed: ${e.toString()}')),
+          SnackBar(content: Text(_errorMessage!)),
         );
       }
     }
@@ -83,6 +95,7 @@ class AuthNotifier extends StateNotifier<AuthStatus> {
 
   Future<void> logout(BuildContext context) async {
     state = AuthStatus.loading;
+    _errorMessage = null; // Clear any previous error message
     try {
       await logoutService();
       state = AuthStatus.unauthenticated;
@@ -94,9 +107,10 @@ class AuthNotifier extends StateNotifier<AuthStatus> {
       }
     } catch (e) {
       state = AuthStatus.error;
+      _errorMessage = 'Logout failed: ${e.toString()}';
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Logout failed: ${e.toString()}')),
+          SnackBar(content: Text(_errorMessage!)),
         );
       }
     }
