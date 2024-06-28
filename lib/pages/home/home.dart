@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:langx_flutter/pages/home/community.dart';
 import 'package:langx_flutter/pages/home/profile.dart';
 
-// Variables
-int index = 1;
-
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -16,13 +13,15 @@ class Home extends StatefulWidget {
 
 // Pages selection
 class _HomeState extends State<Home> {
+  int index = 1;
+
   final List<Widget> _bodyElements = [
     const Text("Chat Page"),
     const Community(),
     const Profile(),
   ];
 
-// Main Widget
+  // Main Widget
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,20 +29,11 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          )
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
-
-        // Index Handling
         currentIndex: index,
         onTap: (value) {
-          index = value;
           setState(() {
             index = value;
           });
