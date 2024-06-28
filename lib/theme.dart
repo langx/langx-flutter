@@ -22,6 +22,10 @@ ThemeData whiteTheme() {
     inputDecorationTheme: const InputDecorationTheme(
       labelStyle: TextStyle(color: Color(0xFF000000)),
     ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Color(0xFFFEC409), // Added backgroundColor for AppBar
+      foregroundColor: Colors.black, // Added foregroundColor for AppBar
+    ),
   );
 }
 
@@ -46,6 +50,10 @@ ThemeData darkTheme() {
     scaffoldBackgroundColor: const Color(0xFF121212),
     inputDecorationTheme: const InputDecorationTheme(
       labelStyle: TextStyle(color: Color(0xFFFFFFFF)),
+    ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Color(0xFFFEC409), // Added backgroundColor for AppBar
+      foregroundColor: Colors.black, // Added foregroundColor for AppBar
     ),
   );
 }
