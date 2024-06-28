@@ -25,6 +25,8 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
   Widget build(BuildContext context) {
     Brightness platformBrightness = MediaQuery.of(context).platformBrightness;
 
+    final authNotifier = ref.read(authProvider.notifier);
+
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -60,11 +62,11 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                     dButton(
                       text: "Login",
                       onPress: () async {
-                        await ref.read(authProvider.notifier).login(
-                              email: emailController.text,
-                              password: passwordController.text,
-                              context: context,
-                            );
+                        await authNotifier.login(
+                          email: emailController.text,
+                          password: passwordController.text,
+                          context: context,
+                        );
                       },
                     ),
                     const SizedBox(height: 16),
@@ -92,10 +94,10 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                             height: 40,
                           ),
                           onPressed: () async {
-                            await ref.read(authProvider.notifier).oAuthLogin(
-                                  provider: OAuthProvider.google,
-                                  context: context,
-                                );
+                            await authNotifier.oAuthLogin(
+                              provider: OAuthProvider.google,
+                              context: context,
+                            );
                           },
                         ),
                         const SizedBox(width: 30),
@@ -106,10 +108,10 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                             height: 40,
                           ),
                           onPressed: () async {
-                            await ref.read(authProvider.notifier).oAuthLogin(
-                                  provider: OAuthProvider.facebook,
-                                  context: context,
-                                );
+                            await authNotifier.oAuthLogin(
+                              provider: OAuthProvider.facebook,
+                              context: context,
+                            );
                           },
                         ),
                         const SizedBox(width: 30),
@@ -117,10 +119,10 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                           icon: SvgPicture.asset('assets/images/apple_icon.svg',
                               width: 40, height: 40),
                           onPressed: () async {
-                            await ref.read(authProvider.notifier).oAuthLogin(
-                                  provider: OAuthProvider.apple,
-                                  context: context,
-                                );
+                            await authNotifier.oAuthLogin(
+                              provider: OAuthProvider.apple,
+                              context: context,
+                            );
                           },
                         ),
                       ],
