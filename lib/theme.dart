@@ -23,8 +23,11 @@ ThemeData whiteTheme() {
       labelStyle: TextStyle(color: Color(0xFF000000)),
     ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: Color(0xFFFEC409), // Added backgroundColor for AppBar
-      foregroundColor: Colors.black, // Added foregroundColor for AppBar
+      backgroundColor: Color(0xFFFEC409),
+      foregroundColor: Colors.black,
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      selectedItemColor: Color(0xFFFEC409),
     ),
   );
 }
@@ -52,8 +55,13 @@ ThemeData darkTheme() {
       labelStyle: TextStyle(color: Color(0xFFFFFFFF)),
     ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: Color(0xFFFEC409), // Added backgroundColor for AppBar
-      foregroundColor: Colors.black, // Added foregroundColor for AppBar
+      backgroundColor: Color(0xFFFEC409),
+      foregroundColor: Colors.black,
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Color(0xFF121212),
+      unselectedItemColor: Color(0xFFFFFFFF),
+      selectedItemColor: Color(0xFFFEC409),
     ),
   );
 }
