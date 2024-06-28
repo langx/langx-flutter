@@ -4,10 +4,12 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 // Service Imports
 import 'package:langx_flutter/services/api_service.dart';
 
-listUsers() async {
+Future<List<dynamic>> listUsers() async {
   try {
-    await listDocuments(dotenv.env['USERS_COLLECTION']!);
+    final response = await listDocuments(dotenv.env['USERS_COLLECTION']!);
+    return response.documents;
   } catch (e) {
-    debugPrint(e.toString());
+    debugPrint('Error listing users: $e');
+    rethrow;
   }
 }
