@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:langx_flutter/pages/home/filters.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Components Import
 import 'package:langx_flutter/components/community/usercard.dart';
 import 'package:langx_flutter/providers/user_provider.dart';
+
+// Pages Import
+import 'package:langx_flutter/pages/home/filters.dart';
 
 class Community extends ConsumerStatefulWidget {
   const Community({super.key});
@@ -70,20 +72,25 @@ class _CommunityState extends ConsumerState<Community> {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(
-                  icon: const Icon(Icons.search, size: 30),
-                  onPressed: () {},
-                ),
-                const SizedBox(width: 10.0),
-                IconButton(
-                  icon: const Icon(Icons.filter_list, size: 30),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const FiltersPage()),
-                    );
-                  },
+                const Text("Community"),
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.search, size: 30),
+                      onPressed: () {},
+                    ),
+                    const SizedBox(width: 10.0),
+                    IconButton(
+                      icon: const Icon(Icons.filter_list, size: 30),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const FiltersPage()),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
