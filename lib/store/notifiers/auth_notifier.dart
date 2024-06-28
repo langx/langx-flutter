@@ -9,10 +9,17 @@ enum AuthStatus { authenticated, unauthenticated, loading, error }
 
 // Define a state notifier for authentication
 class AuthNotifier extends StateNotifier<AuthStatus> {
-  AuthNotifier() : super(AuthStatus.unauthenticated);
+  AuthNotifier() : super(AuthStatus.loading) {
+    checkAuthStatus();
+  }
+
+  @override
+  set state(AuthStatus value) {
+    super.state = value;
+    debugPrint('Auth status changed to: $value');
+  }
 
   Future<void> checkAuthStatus() async {
-    state = AuthStatus.loading;
     final isAuthenticated = await isLoggedIn();
     if (isAuthenticated) {
       state = AuthStatus.authenticated;
