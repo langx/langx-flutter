@@ -15,30 +15,30 @@ class Community extends ConsumerStatefulWidget {
   ConsumerState<Community> createState() => _CommunityState();
 }
 
-class _CommunityState extends ConsumerState<Community> {
+class _CommunityState extends ConsumerState<Community>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
   @override
   void initState() {
     super.initState();
     ref.read(userProvider.notifier).fetchUsers();
+    _tabController = TabController(length: 5, vsync: this);
   }
 
-  Widget buildCategoryButton(IconData icon, String label, Color iconColor) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        color: const Color.fromARGB(255, 255, 251, 239),
-        padding: const EdgeInsets.all(6.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, color: iconColor),
-            const SizedBox(height: 4),
-            Text(
-              label,
-              style: TextStyle(color: iconColor, fontSize: 9),
-            ),
-          ],
-        ),
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  Widget buildCategoryTab(IconData icon, Color iconColor) {
+    return Tab(
+      icon: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(icon, color: iconColor),
+        ],
       ),
     );
   }
@@ -65,138 +65,122 @@ class _CommunityState extends ConsumerState<Community> {
     final users = ref.watch(userProvider);
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(31, 163, 163, 163),
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text("Community"),
+            Row(
               children: [
-                const Text("Community"),
-                Row(
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.search, size: 30),
-                      onPressed: () {},
-                    ),
-                    const SizedBox(width: 10.0),
-                    IconButton(
-                      icon: const Icon(Icons.filter_list, size: 30),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const FiltersPage()),
-                        );
-                      },
-                    ),
-                  ],
+                IconButton(
+                  icon: const Icon(Icons.search, size: 30),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: const Icon(Icons.filter_list, size: 30),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FiltersPage()),
+                    );
+                  },
                 ),
               ],
             ),
-            centerTitle: false,
-            pinned: true,
-            backgroundColor: const Color(0xFFFBC02D),
-            foregroundColor: Colors.black,
-          ),
-          SliverToBoxAdapter(
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              runSpacing: 8.0,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: buildCategoryButton(
-                          Icons.home, "FOR YOU", Colors.orange),
+          ],
+        ),
+        centerTitle: false,
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: [
+            buildCategoryTab(Icons.home_outlined, Colors.black),
+            buildCategoryTab(Icons.check_box_outlined, Colors.green),
+            buildCategoryTab(Icons.back_hand_outlined,
+                Theme.of(context).colorScheme.secondary),
+            buildCategoryTab(
+                Icons.battery_charging_full_outlined, Colors.green),
+            buildCategoryTab(Icons.visibility_outlined,
+                Theme.of(context).colorScheme.onSurface),
+          ],
+        ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          CustomScrollView(
+            slivers: [
+              const SliverToBoxAdapter(
+                child: SizedBox(height: 16),
+              ),
+              const SliverToBoxAdapter(
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(
+                      "Language Mates",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF262626),
+                      ),
                     ),
-                    Expanded(
-                      child: buildCategoryButton(
-                          Icons.check_box, "ENTHUSIASTS", Colors.green),
-                    ),
-                    Expanded(
-                      child: buildCategoryButton(
-                          Icons.person_add, "NEW USERS", Colors.red),
-                    ),
-                    Expanded(
-                      child: buildCategoryButton(
-                          Icons.people, "ACTIVE", Colors.green),
-                    ),
-                    Expanded(
-                      child: buildCategoryButton(
-                          Icons.visibility, "VISITORS", Colors.black),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(height: 16),
-          ),
-          const SliverToBoxAdapter(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text(
-                  "Language Mates",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF262626),
                   ),
                 ),
               ),
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text(
-                  "🎯 Recommended For You",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF737373),
+              const SliverToBoxAdapter(
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(
+                      "🎯 Recommended For You",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF737373),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+              users.isEmpty
+                  ? const SliverToBoxAdapter(
+                      child: Center(child: CircularProgressIndicator()),
+                    )
+                  : SliverPadding(
+                      padding: const EdgeInsets.all(8.0),
+                      sliver: SliverGrid(
+                        delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index) {
+                            final user = users[index].data;
+                            return UserCard(
+                              name: user['name'].toString(),
+                              age: user['age'] ?? 0,
+                              studies: user['studyLanguages'].toString(),
+                              speaks: user['motherLanguages'].toString(),
+                              imageUrl: user['imageUrl'] ??
+                                  'assets/images/preview.png',
+                              status: user['status'] ?? 'Active',
+                            );
+                          },
+                          childCount: users.length,
+                        ),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: crossAxisCount,
+                          mainAxisSpacing: 10.0,
+                          crossAxisSpacing: 10.0,
+                          childAspectRatio: 0.75,
+                        ),
+                      ),
+                    ),
+            ],
           ),
-          users.isEmpty
-              ? const SliverToBoxAdapter(
-                  child: Center(child: CircularProgressIndicator()),
-                )
-              : SliverPadding(
-                  padding: const EdgeInsets.all(8.0),
-                  sliver: SliverGrid(
-                    delegate: SliverChildBuilderDelegate(
-                      (BuildContext context, int index) {
-                        final user = users[index].data;
-                        return UserCard(
-                          name: user['name'].toString(),
-                          age: user['age'] ?? 0,
-                          studies: user['studyLanguages'].toString(),
-                          speaks: user['motherLanguages'].toString(),
-                          imageUrl:
-                              user['imageUrl'] ?? 'assets/images/preview.png',
-                          status: user['status'] ?? 'Active',
-                        );
-                      },
-                      childCount: users.length,
-                    ),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: crossAxisCount,
-                      mainAxisSpacing: 10.0,
-                      crossAxisSpacing: 10.0,
-                      childAspectRatio: 0.75,
-                    ),
-                  ),
-                ),
+          const Center(child: Text('ENTHUSIASTS Content')),
+          const Center(child: Text('NEW USERS Content')),
+          const Center(child: Text('ACTIVE Content')),
+          const Center(child: Text('VISITORS Content')),
         ],
       ),
     );
