@@ -28,7 +28,6 @@ class FiltersPageState extends State<FiltersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.yellow[700],
         leading: IconButton(
@@ -113,20 +112,9 @@ class FiltersPageState extends State<FiltersPage> {
           _buildFilterSection(
             title: 'Age',
             options: [
-              Container(
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      color: Colors.grey,
-                      width: 1.0,
-                    ),
-                  ),
-                ),
-                child: ListTile(
-                  leading:
-                      Icon(Icons.calendar_today, color: Colors.yellow[700]),
-                  title: Text(rangeLable),
-                ),
+              ListTile(
+                leading: Icon(Icons.calendar_today, color: Colors.yellow[700]),
+                title: Text(rangeLable),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -162,7 +150,7 @@ class FiltersPageState extends State<FiltersPage> {
               ),
               onPressed: () {},
               child: const Text(
-                'APPLY',
+                'Apply',
                 style: TextStyle(fontSize: 16),
               ),
             ),
@@ -179,7 +167,6 @@ class FiltersPageState extends State<FiltersPage> {
   }) {
     return Card(
       elevation: 8.0,
-      color: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.0),
       ),
@@ -190,7 +177,10 @@ class FiltersPageState extends State<FiltersPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
-              title: Text(title),
+              title: Text(
+                title,
+                style: const TextStyle(fontSize: 25),
+              ),
               trailing: hasArrow ? const Icon(Icons.arrow_forward_ios) : null,
             ),
             Column(children: options),
@@ -202,48 +192,28 @@ class FiltersPageState extends State<FiltersPage> {
 
   Widget _buildOptionRow(String text, StatelessWidget icon, bool selection,
       BoolCallback onChange) {
-    return Container(
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: Colors.grey,
-            width: 1.0,
-          ),
-        ),
-      ),
-      child: ListTile(
-        leading: icon,
-        title: Text(text),
-        trailing: Checkbox(
-            activeColor: Colors.yellow[700],
-            checkColor: Colors.black,
-            value: selection,
-            onChanged: onChange),
-      ),
+    return ListTile(
+      leading: icon,
+      title: Text(text),
+      trailing: Checkbox(
+          activeColor: Colors.yellow[700],
+          checkColor: Colors.black,
+          value: selection,
+          onChanged: onChange),
     );
   }
 
   Widget _buildOptionRow2(String text, StatelessWidget icon) {
-    return Container(
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: Colors.grey,
-            width: 1.0,
-          ),
-        ),
-      ),
-      child: ListTile(
-        leading: icon,
-        title: Text(text),
-        trailing: IconButton(
-          iconSize: 30,
-          icon: const Icon(Icons.chevron_right),
-          onPressed: () {
-            debugPrint("Print");
-          },
-          color: Colors.grey,
-        ),
+    return ListTile(
+      leading: icon,
+      title: Text(text),
+      trailing: IconButton(
+        iconSize: 30,
+        icon: const Icon(Icons.chevron_right),
+        onPressed: () {
+          debugPrint("Print");
+        },
+        color: Colors.grey,
       ),
     );
   }
