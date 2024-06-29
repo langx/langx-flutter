@@ -48,8 +48,7 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(
-                20.0), // Optional padding for better spacing
+            padding: const EdgeInsets.all(20.0),
             child: Card(
               child: SingleChildScrollView(
                 child: Padding(
@@ -59,7 +58,7 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
-                          margin: const EdgeInsets.all(25),
+                          margin: const EdgeInsets.all(10),
                           padding: const EdgeInsets.all(5),
                           constraints: const BoxConstraints(
                               maxWidth: 300, maxHeight: 300),
@@ -90,20 +89,6 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                               context: context,
                             );
                           },
-                        ),
-                        const SizedBox(height: 16),
-                        TextButton(
-                          onPressed: () {
-                            // Navigate to registration page
-                          },
-                          child: const Text('Not a member yet? SIGN UP'),
-                        ),
-                        const SizedBox(height: 8),
-                        TextButton(
-                          onPressed: () {
-                            // Navigate to forgot password page
-                          },
-                          child: const Text('Forgot password?'),
                         ),
                         const SizedBox(height: 16),
                         Row(
@@ -139,9 +124,10 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                             const SizedBox(width: 30),
                             IconButton(
                               icon: SvgPicture.asset(
-                                  'assets/images/apple_icon.svg',
-                                  width: 40,
-                                  height: 40),
+                                'assets/images/apple_icon.svg',
+                                width: 40,
+                                height: 40,
+                              ),
                               onPressed: () async {
                                 await authNotifier.oAuthLogin(
                                   provider: OAuthProvider.apple,
@@ -151,12 +137,67 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 16),
+                        Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Not a member yet?',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    // Navigate to registration page
+                                  },
+                                  child: const Text(
+                                    'Sign Up',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Forgot password?',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    // Navigate to forgot password page
+                                  },
+                                  child: const Text(
+                                    'Reset It',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                         TextButton(
                           onPressed: () {
                             // Show introduction
                           },
-                          child: const Text('SHOW INTRO'),
+                          child: const Text(
+                            'Show Intro',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
                         ),
                       ],
                     ),
