@@ -96,9 +96,23 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                           children: [
                             IconButton(
                               icon: SvgPicture.asset(
+                                'assets/images/discord_icon.svg',
+                                width: 30,
+                                height: 30,
+                              ),
+                              onPressed: () async {
+                                await authNotifier.oAuthLogin(
+                                  provider: OAuthProvider.discord,
+                                  context: context,
+                                );
+                              },
+                            ),
+                            const SizedBox(width: 30),
+                            IconButton(
+                              icon: SvgPicture.asset(
                                 'assets/images/google_icon.svg',
-                                width: 40,
-                                height: 40,
+                                width: 30,
+                                height: 30,
                               ),
                               onPressed: () async {
                                 await authNotifier.oAuthLogin(
@@ -111,8 +125,8 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                             IconButton(
                               icon: SvgPicture.asset(
                                 'assets/images/facebook_icon.svg',
-                                width: 40,
-                                height: 40,
+                                width: 30,
+                                height: 30,
                               ),
                               onPressed: () async {
                                 await authNotifier.oAuthLogin(
@@ -125,8 +139,8 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                             IconButton(
                               icon: SvgPicture.asset(
                                 'assets/images/apple_icon.svg',
-                                width: 40,
-                                height: 40,
+                                width: 30,
+                                height: 30,
                               ),
                               onPressed: () async {
                                 await authNotifier.oAuthLogin(
