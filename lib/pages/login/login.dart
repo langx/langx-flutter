@@ -92,9 +92,13 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                         ),
                         const SizedBox(height: 30),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment
+                              .spaceEvenly, // Adjusts spacing evenly between items
                           children: [
-                            Flexible(
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal:
+                                      4.0), // Adjust horizontal padding as needed
                               child: OAuthButton(
                                 assetPath: 'assets/images/discord_icon.svg',
                                 onPressed: () async {
@@ -105,8 +109,10 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                                 },
                               ),
                             ),
-                            const Spacer(), // Auto padding between buttons
-                            Flexible(
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal:
+                                      4.0), // Adjust horizontal padding as needed
                               child: OAuthButton(
                                 assetPath: 'assets/images/google_icon.svg',
                                 onPressed: () async {
@@ -117,8 +123,10 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                                 },
                               ),
                             ),
-                            const Spacer(), // Auto padding between buttons
-                            Flexible(
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal:
+                                      4.0), // Adjust horizontal padding as needed
                               child: OAuthButton(
                                 assetPath: 'assets/images/facebook_icon.svg',
                                 onPressed: () async {
@@ -129,8 +137,10 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                                 },
                               ),
                             ),
-                            const Spacer(), // Auto padding between buttons
-                            Flexible(
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal:
+                                      4.0), // Adjust horizontal padding as needed
                               child: OAuthButton(
                                 assetPath: 'assets/images/apple_icon.svg',
                                 onPressed: () async {
