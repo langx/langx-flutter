@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:toastification/toastification.dart';
 
 // Themes Import
 import 'package:langx_flutter/theme.dart';
@@ -39,11 +40,14 @@ class Main extends ConsumerWidget {
           builder: (context) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               if (authNotifier.errorMessage != null) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(authNotifier.errorMessage!)),
+                toastification.show(
+                  context: context,
+                  type: ToastificationType.error,
+                  title: Text(authNotifier.errorMessage!),
+                  autoCloseDuration: const Duration(seconds: 3),
+                  alignment: Alignment.topCenter,
                 );
-                authNotifier
-                    .clearErrorMessage(); // Clear the error message after displaying it
+                authNotifier.clearErrorMessage();
               }
             });
 
