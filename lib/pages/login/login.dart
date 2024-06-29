@@ -143,21 +143,28 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Text(
-                                  'Not a member yet?',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontStyle: FontStyle.italic,
+                                const Expanded(
+                                  flex: 7,
+                                  child: Text(
+                                    'Not a member yet?',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontStyle: FontStyle.italic,
+                                    ),
                                   ),
                                 ),
-                                TextButton(
-                                  onPressed: () {
-                                    // Navigate to registration page
-                                  },
-                                  child: const Text(
-                                    'Sign Up',
-                                    style: TextStyle(
-                                      fontSize: 16,
+                                Expanded(
+                                  flex: 5,
+                                  child: TextButton(
+                                    onPressed: () {
+                                      // Navigate to registration page
+                                    },
+                                    child: const Text(
+                                      'Sign Up',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -166,21 +173,28 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Text(
-                                  'Forgot password?',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontStyle: FontStyle.italic,
+                                const Expanded(
+                                  flex: 7,
+                                  child: Text(
+                                    'Forgot password?',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontStyle: FontStyle.italic,
+                                    ),
                                   ),
                                 ),
-                                TextButton(
-                                  onPressed: () {
-                                    // Navigate to forgot password page
-                                  },
-                                  child: const Text(
-                                    'Reset It',
-                                    style: TextStyle(
-                                      fontSize: 16,
+                                Expanded(
+                                  flex: 5,
+                                  child: TextButton(
+                                    onPressed: () {
+                                      // Navigate to forgot password page
+                                    },
+                                    child: const Text(
+                                      'Reset It',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
                                     ),
                                   ),
                                 ),
