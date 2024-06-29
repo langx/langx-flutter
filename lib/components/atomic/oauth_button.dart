@@ -13,13 +13,17 @@ class OAuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Brightness platformBrightness = MediaQuery.of(context).platformBrightness;
+    final bool isDarkMode = platformBrightness == Brightness.dark;
+    final bool isAppleIcon = assetPath.contains('apple_icon');
+
     return GestureDetector(
       onTap: onPressed,
       child: Container(
         height: 50,
         width: 50,
         decoration: BoxDecoration(
-          color: const Color(0xFFF2F2F2),
+          color: isDarkMode ? const Color(0xFF131314) : Colors.white,
           borderRadius: BorderRadius.circular(4),
           boxShadow: const [
             BoxShadow(
@@ -40,6 +44,12 @@ class OAuthButton extends StatelessWidget {
             assetPath,
             width: 25,
             height: 25,
+            colorFilter: isAppleIcon
+                ? ColorFilter.mode(
+                    isDarkMode ? Colors.white : Colors.black,
+                    BlendMode.srcIn,
+                  )
+                : null,
           ),
         ),
       ),
