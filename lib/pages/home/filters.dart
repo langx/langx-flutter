@@ -177,11 +177,9 @@ class FiltersPageState extends State<FiltersPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
-              title: Expanded(
-                child: Text(
-                  title,
-                  style: TextStyle(fontSize: 25),
-                ),
+              title: Text(
+                title,
+                style: const TextStyle(fontSize: 25),
               ),
               trailing: hasArrow ? const Icon(Icons.arrow_forward_ios) : null,
             ),
