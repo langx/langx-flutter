@@ -61,6 +61,8 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                         Container(
                           margin: const EdgeInsets.all(25),
                           padding: const EdgeInsets.all(5),
+                          constraints: const BoxConstraints(
+                              maxWidth: 300, maxHeight: 300),
                           child: Image.asset(
                             platformBrightness == Brightness.dark
                                 ? "assets/images/langx-white.png"
