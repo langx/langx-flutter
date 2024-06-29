@@ -31,14 +31,19 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.6
+  # Allows vector graphics support using SVG files in your Flutter application.
   flutter_svg: ^2.0.0
-  go_router: ^14.1.4
+
+  # A secure and easy solution for handling authentication, real-time databases, storage, and more in your Flutter apps.
   appwrite: ^12.0.4
+
+  # A package for loading environment variables at runtime from a .env file, useful for managing configuration and secrets.
   flutter_dotenv: ^5.1.0
+
+  # A reactive state-management package that allows you to manage app state in a more scalable way, using the provider pattern.
   flutter_riverpod: ^2.5.1
+
+  # A lightweight and customizable package for showing toast messages. It is useful for displaying brief notifications.
   toastification: ^2.0.0
 
 dev_dependencies:
