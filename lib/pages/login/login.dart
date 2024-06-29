@@ -8,8 +8,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:langx_flutter/providers/auth_provider.dart';
 
 // Component Imports
-import 'package:langx_flutter/components/dfault_framework/dfault_material/dfault_buttons.dart';
-import 'package:langx_flutter/components/dfault_framework/dfault_material/dfault_input.dart';
+import 'package:langx_flutter/components/atomic/dfault_buttons.dart';
+import 'package:langx_flutter/components/atomic/dfault_input.dart';
+import 'package:langx_flutter/components/atomic/oauth_button.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -90,16 +91,12 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                             );
                           },
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 30),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            IconButton(
-                              icon: SvgPicture.asset(
-                                'assets/images/discord_icon.svg',
-                                width: 30,
-                                height: 30,
-                              ),
+                            OAuthButton(
+                              assetPath: 'assets/images/discord_icon.svg',
                               onPressed: () async {
                                 await authNotifier.oAuthLogin(
                                   provider: OAuthProvider.discord,
@@ -108,12 +105,8 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                               },
                             ),
                             const SizedBox(width: 30),
-                            IconButton(
-                              icon: SvgPicture.asset(
-                                'assets/images/google_icon.svg',
-                                width: 30,
-                                height: 30,
-                              ),
+                            OAuthButton(
+                              assetPath: 'assets/images/google_icon.svg',
                               onPressed: () async {
                                 await authNotifier.oAuthLogin(
                                   provider: OAuthProvider.google,
@@ -122,12 +115,8 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                               },
                             ),
                             const SizedBox(width: 30),
-                            IconButton(
-                              icon: SvgPicture.asset(
-                                'assets/images/facebook_icon.svg',
-                                width: 30,
-                                height: 30,
-                              ),
+                            OAuthButton(
+                              assetPath: 'assets/images/facebook_icon.svg',
                               onPressed: () async {
                                 await authNotifier.oAuthLogin(
                                   provider: OAuthProvider.facebook,
@@ -136,12 +125,8 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                               },
                             ),
                             const SizedBox(width: 30),
-                            IconButton(
-                              icon: SvgPicture.asset(
-                                'assets/images/apple_icon.svg',
-                                width: 30,
-                                height: 30,
-                              ),
+                            OAuthButton(
+                              assetPath: 'assets/images/apple_icon.svg',
                               onPressed: () async {
                                 await authNotifier.oAuthLogin(
                                   provider: OAuthProvider.apple,
