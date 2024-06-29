@@ -5,9 +5,11 @@ class OAuthButton extends StatelessWidget {
   final String assetPath;
   final VoidCallback onPressed;
 
-  const OAuthButton(
-      {required this.assetPath, required this.onPressed, Key? key})
-      : super(key: key);
+  const OAuthButton({
+    required this.assetPath,
+    required this.onPressed,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
