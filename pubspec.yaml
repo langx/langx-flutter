@@ -31,9 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # Allows vector graphics support using SVG files in your Flutter application.
-  flutter_svg: ^2.0.0
-
   # A secure and easy solution for handling authentication, real-time databases, storage, and more in your Flutter apps.
   appwrite: ^12.0.4
 
@@ -42,6 +39,9 @@ dependencies:
 
   # A reactive state-management package that allows you to manage app state in a more scalable way, using the provider pattern.
   flutter_riverpod: ^2.5.1
+
+  # Allows vector graphics support using SVG files in your Flutter application.
+  flutter_svg: ^2.0.0
 
   # A lightweight and customizable package for showing toast messages. It is useful for displaying brief notifications.
   toastification: ^2.0.0
