@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:langx_flutter/assets/svg/battery_svg.dart';
-import 'package:langx_flutter/assets/svg/word_svg.dart';
-import 'package:langx_flutter/assets/svg/country_svg.dart';
-import 'package:langx_flutter/assets/svg/sex_svg.dart';
-import 'package:langx_flutter/assets/svg/switch_svg.dart';
+import 'package:langx/assets/svg/battery_svg.dart';
+import 'package:langx/assets/svg/word_svg.dart';
+import 'package:langx/assets/svg/country_svg.dart';
+import 'package:langx/assets/svg/sex_svg.dart';
+import 'package:langx/assets/svg/switch_svg.dart';
 
 class FiltersPage extends StatefulWidget {
   const FiltersPage({super.key});

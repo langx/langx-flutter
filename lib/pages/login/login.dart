@@ -4,12 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Providers Import
-import 'package:langx_flutter/providers/auth_provider.dart';
+import 'package:langx/providers/auth_provider.dart';
 
 // Component Imports
-import 'package:langx_flutter/components/atomic/dfault_buttons.dart';
-import 'package:langx_flutter/components/atomic/dfault_input.dart';
-import 'package:langx_flutter/components/atomic/oauth_button.dart';
+import 'package:langx/components/atomic/dfault_buttons.dart';
+import 'package:langx/components/atomic/dfault_input.dart';
+import 'package:langx/components/atomic/oauth_button.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // Components Imports
-import 'package:langx_flutter/assets/svg/word_svg.dart';
+import 'package:langx/assets/svg/word_svg.dart';
 
 class MotherTonguesCard extends StatelessWidget {
   final List<String> languages;

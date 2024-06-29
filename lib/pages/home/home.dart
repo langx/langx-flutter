@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 // Pages Import
-import 'package:langx_flutter/pages/home/community.dart';
-import 'package:langx_flutter/pages/home/profile.dart';
+import 'package:langx/pages/home/community.dart';
+import 'package:langx/pages/home/profile.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

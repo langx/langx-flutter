@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Service Imports
-import 'package:langx_flutter/services/user_service.dart';
+import 'package:langx/services/user_service.dart';
 
 class UserNotifier extends StateNotifier<List<dynamic>> {
   UserNotifier() : super([]);

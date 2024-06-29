@@ -4,14 +4,14 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:toastification/toastification.dart';
 
 // Themes Import
-import 'package:langx_flutter/theme.dart';
+import 'package:langx/theme.dart';
 
 // Pages Import
-import 'package:langx_flutter/pages/login/login.dart';
-import 'package:langx_flutter/pages/home/home.dart';
+import 'package:langx/pages/login/login.dart';
+import 'package:langx/pages/home/home.dart';
 
 // Providers Import
-import 'package:langx_flutter/providers/auth_provider.dart';
+import 'package:langx/providers/auth_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

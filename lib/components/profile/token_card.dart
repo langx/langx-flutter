@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 // Components Imports
-import 'package:langx_flutter/assets/svg/trophy_svg.dart';
-import 'package:langx_flutter/assets/svg/info_svg.dart';
+import 'package:langx/assets/svg/trophy_svg.dart';
+import 'package:langx/assets/svg/info_svg.dart';
 
 class ProfileTokenCard extends StatelessWidget {
   final String imgUrl;

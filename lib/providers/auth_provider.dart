@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Service Imports
-import 'package:langx_flutter/services/auth_service.dart';
+import 'package:langx/services/auth_service.dart';
 
 // Page Imports
-import 'package:langx_flutter/pages/home/home.dart';
-import 'package:langx_flutter/pages/login/login.dart';
+import 'package:langx/pages/home/home.dart';
+import 'package:langx/pages/login/login.dart';
 
 // Define an enum for authentication state
 enum AuthStatus { authenticated, unauthenticated, loading, error }

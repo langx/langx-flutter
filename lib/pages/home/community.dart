@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Components Import
-import 'package:langx_flutter/components/community/usercard.dart';
-import 'package:langx_flutter/providers/user_provider.dart';
+import 'package:langx/components/community/usercard.dart';
+import 'package:langx/providers/user_provider.dart';
 
 // Pages Import
-import 'package:langx_flutter/pages/home/filters.dart';
+import 'package:langx/pages/home/filters.dart';
 
 class Community extends ConsumerStatefulWidget {
   const Community({super.key});

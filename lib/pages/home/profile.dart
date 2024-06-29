@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Providers Import
-import 'package:langx_flutter/providers/auth_provider.dart';
+import 'package:langx/providers/auth_provider.dart';
 
 // Components Import
-import 'package:langx_flutter/components/profile/user_card.dart';
-import 'package:langx_flutter/components/profile/token_card.dart';
-import 'package:langx_flutter/components/profile/day_streaks_card.dart';
-import 'package:langx_flutter/components/profile/about_me_card.dart';
-import 'package:langx_flutter/components/profile/study_languages_card.dart';
-import 'package:langx_flutter/components/profile/mother_tongues_card.dart';
-import 'package:langx_flutter/components/profile/badges_card.dart';
-import 'package:langx_flutter/components/profile/others_card.dart';
+import 'package:langx/components/profile/user_card.dart';
+import 'package:langx/components/profile/token_card.dart';
+import 'package:langx/components/profile/day_streaks_card.dart';
+import 'package:langx/components/profile/about_me_card.dart';
+import 'package:langx/components/profile/study_languages_card.dart';
+import 'package:langx/components/profile/mother_tongues_card.dart';
+import 'package:langx/components/profile/badges_card.dart';
+import 'package:langx/components/profile/others_card.dart';
 
 class Profile extends ConsumerStatefulWidget {
   const Profile({super.key});
