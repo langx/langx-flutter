@@ -94,44 +94,52 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            OAuthButton(
-                              assetPath: 'assets/images/discord_icon.svg',
-                              onPressed: () async {
-                                await authNotifier.oAuthLogin(
-                                  provider: OAuthProvider.discord,
-                                  context: context,
-                                );
-                              },
+                            Flexible(
+                              child: OAuthButton(
+                                assetPath: 'assets/images/discord_icon.svg',
+                                onPressed: () async {
+                                  await authNotifier.oAuthLogin(
+                                    provider: OAuthProvider.discord,
+                                    context: context,
+                                  );
+                                },
+                              ),
                             ),
-                            const SizedBox(width: 30),
-                            OAuthButton(
-                              assetPath: 'assets/images/google_icon.svg',
-                              onPressed: () async {
-                                await authNotifier.oAuthLogin(
-                                  provider: OAuthProvider.google,
-                                  context: context,
-                                );
-                              },
+                            const Spacer(), // Auto padding between buttons
+                            Flexible(
+                              child: OAuthButton(
+                                assetPath: 'assets/images/google_icon.svg',
+                                onPressed: () async {
+                                  await authNotifier.oAuthLogin(
+                                    provider: OAuthProvider.google,
+                                    context: context,
+                                  );
+                                },
+                              ),
                             ),
-                            const SizedBox(width: 30),
-                            OAuthButton(
-                              assetPath: 'assets/images/facebook_icon.svg',
-                              onPressed: () async {
-                                await authNotifier.oAuthLogin(
-                                  provider: OAuthProvider.facebook,
-                                  context: context,
-                                );
-                              },
+                            const Spacer(), // Auto padding between buttons
+                            Flexible(
+                              child: OAuthButton(
+                                assetPath: 'assets/images/facebook_icon.svg',
+                                onPressed: () async {
+                                  await authNotifier.oAuthLogin(
+                                    provider: OAuthProvider.facebook,
+                                    context: context,
+                                  );
+                                },
+                              ),
                             ),
-                            const SizedBox(width: 30),
-                            OAuthButton(
-                              assetPath: 'assets/images/apple_icon.svg',
-                              onPressed: () async {
-                                await authNotifier.oAuthLogin(
-                                  provider: OAuthProvider.apple,
-                                  context: context,
-                                );
-                              },
+                            const Spacer(), // Auto padding between buttons
+                            Flexible(
+                              child: OAuthButton(
+                                assetPath: 'assets/images/apple_icon.svg',
+                                onPressed: () async {
+                                  await authNotifier.oAuthLogin(
+                                    provider: OAuthProvider.apple,
+                                    context: context,
+                                  );
+                                },
+                              ),
                             ),
                           ],
                         ),
