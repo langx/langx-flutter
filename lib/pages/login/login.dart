@@ -30,16 +30,15 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: SizedBox(
-            width: 350,
+          child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(40.0),
               child: Form(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      margin: const EdgeInsets.all(55),
+                      margin: const EdgeInsets.all(25),
                       padding: const EdgeInsets.all(5),
                       child: Image.asset(
                         platformBrightness == Brightness.dark
