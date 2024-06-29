@@ -1,5 +1,6 @@
 import 'package:appwrite/enums.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -26,6 +27,22 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
     Brightness platformBrightness = MediaQuery.of(context).platformBrightness;
 
     final authNotifier = ref.read(authProvider.notifier);
+
+    // Invert the status bar color based on the platform brightness
+    SystemUiOverlayStyle overlayStyle;
+    if (platformBrightness == Brightness.dark) {
+      overlayStyle = SystemUiOverlayStyle.light.copyWith(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+      );
+    } else {
+      overlayStyle = SystemUiOverlayStyle.dark.copyWith(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      );
+    }
+
+    SystemChrome.setSystemUIOverlayStyle(overlayStyle);
 
     return Scaffold(
       body: SafeArea(
