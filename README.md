@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repo is a work in progress and is not yet ready for production use.
+
 # langx-flutter
 
 Here is the Flutter-based version of the LangX application, originally developed using the Ionic Angular framework.
